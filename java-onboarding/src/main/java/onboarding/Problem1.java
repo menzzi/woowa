@@ -14,6 +14,9 @@ class Problem1 {
         if(left < 1 || right > 400){
             return false;
         }
+        if(left % 2 == 0){
+            return false;
+        }
 
         return true;
     }
