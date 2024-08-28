@@ -13,10 +13,10 @@ public class Problem4 {
         return 0;
     }
     public static char exchangeUpper(char c){
-        if()
+        return (char) ('Z'-(c-'A'));
     }
     public static char exchangeLower(char c){
-
+        return (char) ('z'-(c-'a'));
     }
 
     public static String solution(String word) {
@@ -28,6 +28,8 @@ public class Problem4 {
                 answer.append(exchangeUpper(ch));
             }else if(checkUpOrLow(ch) == 1){
                 answer.append(exchangeLower(ch));
+            }else if(checkUpOrLow(ch) == 0){
+                answer.append(" ");
             }
         }
 
