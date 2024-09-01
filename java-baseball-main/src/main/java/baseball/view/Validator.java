@@ -1,5 +1,8 @@
 package baseball.view;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Validator {
     public static void validateStringRestartOrEnd(String input){
         if(input.equals("1") || input.equals("2")){
@@ -28,6 +31,12 @@ public class Validator {
         }
     }
     public static void validateStringAllDifferent(String input){
-        // 중복 검증 구현
+        Set<Character> charSet = new HashSet<>();
+
+        for(char c : input.toCharArray()){
+            if(!charSet.add(c)){
+                throw new IllegalArgumentException("중복된 값입니다.");
+            }
+        }
     }
 }

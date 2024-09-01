@@ -9,7 +9,7 @@ public class OutputView {
     public static void displayResult(GameResult result){
         List<String> resultMessage = new ArrayList<>();
         if(isNothing(result)){
-            System.out.println("낫싱");
+            System.out.print("낫싱");
         }
         if(isBall(result)){
             resultMessage.add(result.getBallCount() + "볼");

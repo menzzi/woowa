@@ -21,10 +21,6 @@ public class Number {
         return computer;
     }
 
-    public Number(){
-        this.computerNumbers = generateNumber();
-    }
-
     /* 입력된 문자열 List<Integer>로 변경 */
     public static List<Integer> convertStringToList(String input){
         List<Integer> userNumbers = new ArrayList<>();

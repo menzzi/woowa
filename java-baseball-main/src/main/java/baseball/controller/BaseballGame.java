@@ -9,6 +9,7 @@ import baseball.view.InputView;
 import java.util.List;
 
 import static baseball.view.OutputView.displayGameWinMessage;
+import static baseball.view.Validator.validateStringAllDifferent;
 
 
 public class BaseballGame {
@@ -31,6 +32,7 @@ public class BaseballGame {
         while(true){
             String input = InputView.getUserInput("숫자를 입력해주세요 : ");
             Validator.validateUserInput(input);
+            validateStringAllDifferent(input);
             List<Integer> userInput = Number.convertStringToList(input);
             GameResult result = countBallOrStrike(userInput);
             OutputView.displayResult(result);
