@@ -8,6 +8,5 @@ public class InputView {
     public static String getUserInput(String message){
         System.out.println(message);
         return scanner.nextLine();
-
     }
 }
