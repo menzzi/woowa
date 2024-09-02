@@ -2,7 +2,7 @@ package lotto.model;
 
 import lotto.exception.Exception;
 
-public class User {
+public class UserAmount {
     public static int calculateAmount(String userAmount){
         int amount = validateNumber(userAmount);
         validateRange(amount);
