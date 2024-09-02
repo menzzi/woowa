@@ -8,6 +8,7 @@ public class UserLottos {
     public static List<List<Integer>> generateUserLottos(int countLottoTicket){
         while(countLottoTicket > 0){
             List<Integer> lottoTicket = lottoMachine.generateNumber();
+            new Lotto(lottoTicket);
             userLottos.add(lottoTicket);
             countLottoTicket--;
         }

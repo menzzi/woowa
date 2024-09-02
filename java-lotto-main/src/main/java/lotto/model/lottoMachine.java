@@ -11,5 +11,4 @@ public class lottoMachine {
         Collections.sort(userLottoNumber);
         return userLottoNumber;
     }
-
 }

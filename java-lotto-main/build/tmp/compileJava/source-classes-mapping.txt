@@ -1,10 +1,20 @@
 lotto/exception/Exception.java
  lotto.exception.Exception
-lotto/model/lottoMachine.java
- lotto.model.lottoMachine
 lotto/Application.java
  lotto.Application
+lotto/model/lottoMachine.java
+ lotto.model.lottoMachine
 lotto/view/InputView.java
  lotto.view.InputView
+lotto/model/Rank.java
+ lotto.model.Rank
+lotto/view/OutputView.java
+ lotto.view.OutputView
+lotto/model/UserAmount.java
+ lotto.model.UserAmount
+lotto/controller/LottoController.java
+ lotto.controller.LottoController
 lotto/model/Lotto.java
  lotto.model.Lotto
+lotto/model/UserLottos.java
+ lotto.model.UserLottos
