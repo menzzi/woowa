@@ -20,11 +20,11 @@ public class BaseballGame {
         do{
             proceed();
         }while(isRestartGame());
+        System.out.println("게임이 종료되었습니다.");
     }
 
     private void proceed(){
         computerNumber = initNumber();
-        System.out.println(computerNumber);
         proceedGame();
         endGame();
     }
@@ -65,7 +65,7 @@ public class BaseballGame {
     }
 
     private boolean isRestartGame(){
-        String input = InputView.getUserInput("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String input = InputView.getUserInput("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. ");
         Validator.validateStringRestartOrEnd(input);
         return input.equals("1");
     }
