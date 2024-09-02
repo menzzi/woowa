@@ -26,7 +26,7 @@ public class BaseballGame {
     private void proceed(){
         computerNumber = initNumber();
         proceedGame();
-        endGame();
+        winGame();
     }
     public void proceedGame(){
         while(true){
@@ -69,7 +69,7 @@ public class BaseballGame {
         Validator.validateStringRestartOrEnd(input);
         return input.equals("1");
     }
-    private void endGame(){
+    private void winGame(){
         displayGameWinMessage();
     }
 
