@@ -65,7 +65,7 @@ public class BaseballGame {
     }
 
     private boolean isRestartGame(){
-        String input = InputView.getUserInput("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. ");
+        String input = InputView.getUserInput("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         Validator.validateStringRestartOrEnd(input);
         return input.equals("1");
     }
