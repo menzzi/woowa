@@ -1,9 +1,7 @@
 package lotto.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import lotto.exception.Exception;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
