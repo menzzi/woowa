@@ -1,12 +1,10 @@
 package lotto.controller;
 
-import lotto.model.Lotto;
-import lotto.model.Result;
-import lotto.model.UserAmount;
-import lotto.model.UserLottos;
+import lotto.model.*;
 import lotto.view.InputView;
 
 import java.util.List;
+import java.util.Map;
 
 public class LottoController {
     public void run(){
@@ -25,9 +23,14 @@ public class LottoController {
     }
     public Result compareLottos(List<List<Integer>> lottoList){
         Lotto lotto = new Lotto(InputView.inputLottoNumber());
+        int ball = InputView.inputBonusNumber();
+
         for(int i=0;i<lottoList.size();i++){
 
         }
+    }
+    public Map<Rank,Integer> resultMap(){
+
     }
 
 }

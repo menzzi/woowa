@@ -16,9 +16,9 @@ public class InputView {
         return convertStringToList(Console.readLine());
     }
 
-    public static String inputBonusNumber(){
+    public static int inputBonusNumber(){
         System.out.println("보너스 번호를 입력하세요.");
-        return Console.readLine();
+        return Integer.parseInt(Console.readLine());
     }
 
     private static List<Integer> convertStringToList(String input){
