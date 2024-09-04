@@ -38,4 +38,11 @@ public class Lotto {
             }
         }
     }
+
+    public void validateBonusNumber(List<Integer> lotto, int bonusNumber){
+        if(lotto.contains(bonusNumber)){
+            Exception.duplicateException();
+            throw new IllegalArgumentException();
+        }
+    }
 }

@@ -7,14 +7,17 @@ import lotto.view.InputView;
 import java.util.List;
 
 public class LottoController {
-    private static List<List<Integer>> userLottos;
     public void run(){
 
     }
     public void start(){
         String userAmount = InputView.inputUserAmount();
         int countLottoTicket = UserAmount.calculateAmount(userAmount);
-        userLottos = UserLottos.generateUserLottos(countLottoTicket);
+        List<List<Integer>> userLottos = UserLottos.generateUserLottos(countLottoTicket);
+
+
 
     }
+
+
 }
