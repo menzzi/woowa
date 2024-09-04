@@ -2,6 +2,7 @@ package lotto.controller;
 
 import lotto.model.*;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ public class LottoController {
     }
     public void start(){
         int countLottoTicket = inputUserAmount();
+        OutputView.printTicketCount(countLottoTicket);
         List<List<Integer>> userLottos = UserLottos.generateUserLottos(countLottoTicket);
 
 
