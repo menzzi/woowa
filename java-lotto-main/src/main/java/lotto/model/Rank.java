@@ -36,4 +36,8 @@ public enum Rank{
     private boolean matchCount(int countMatch){
         return this.countMatch == countMatch;
     }
+
+    public String getMessage(){
+        return message;
+    }
 }

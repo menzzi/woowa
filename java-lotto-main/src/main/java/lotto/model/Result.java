@@ -9,7 +9,7 @@ public class Result {
         this.bonusBall = bonusBall;
     }
 
-    public Rank match(Lotto userNumber){
+    public static Rank match(Lotto userNumber){
         int countMatch = userNumber.countMatch(lotto);
         boolean bonusMatch = userNumber.containNumber(bonusBall);
         return Rank.valueOf(countMatch, bonusMatch);

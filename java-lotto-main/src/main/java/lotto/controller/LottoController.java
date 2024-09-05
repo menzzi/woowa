@@ -26,7 +26,7 @@ public class LottoController {
 
         userLottos = makeLottoList(countLottoTicket);
         winningResult = wingingResult(userLottos);
-        lottoResult(userLottos,winningResult);
+        lottoResult(userLottos,winningResult,countLottoTicket);
     }
 
     public int inputUserAmount(){
@@ -44,21 +44,31 @@ public class LottoController {
         return winningResult;
     }
 
-    public void lottoResult(List<Lotto> userLottos,Result winningResult){
-
-    }
-
-    public Map<Rank,Integer> resultMap(List<Lotto> lottoList){
-        Map<Rank,Integer> map = setMap();
+    public void lottoResult(List<Lotto> userLottos,Result winningResult, int countLottoTicket){
+        Map<Rank,Integer> result = setResult();
         Rank rank;
+        OutputView.printRankMessage();
 
-        for(int i=0;i<lottoList.size();i++){
-            map.put();
+        for(int i=0;i<userLottos.size();i++){
+            rank = Result.match(userLottos.get(i));
+            result.put(rank,result.get(rank)+1);
+        }
+
+        for(int i = Rank.values().length-1; i>=0 ; i--){
+            printResult(result);
         }
 
     }
+    public static void printResult(Map<Rank,Integer> result){
+        for(int i = Rank.values().length-1; i>=0 ; i--){
+            if(Rank.values()[i] != Rank.MISS){
+                OutputView.printRank(Rank.values()[i].getMessage(),result.get(Rank.values()[i]));
+            }
+        }
+    }
 
-    private Map<Rank,Integer> setMap(){
+
+    private Map<Rank,Integer> setResult(){
         Map<Rank,Integer> result = new LinkedHashMap<>();
 
         for(Rank rank : Rank.values()){
