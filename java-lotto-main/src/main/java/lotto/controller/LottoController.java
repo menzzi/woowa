@@ -6,8 +6,6 @@ import lotto.view.OutputView;
 
 import java.util.*;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
-
 public class LottoController {
     private List<Lotto> userLottos;
     private Result winningResult;
@@ -16,7 +14,7 @@ public class LottoController {
         try{
             start();
         }catch (Exception e){
-            log.print("[ERROR] ");
+            e.getStackTrace();
         }
     }
 
@@ -44,7 +42,7 @@ public class LottoController {
         return winningResult;
     }
 
-    public void lottoResult(List<Lotto> userLottos,Result winningResult, int countLottoTicket){
+    public void lottoResult(List<Lotto> userLottos, Result winningResult, int countLottoTicket){
         Map<Rank,Integer> result = setResult();
         Rank rank;
         OutputView.printRankMessage();
@@ -57,7 +55,7 @@ public class LottoController {
         for(int i = Rank.values().length-1; i>=0 ; i--){
             printResult(result);
         }
-
+        printRate(result,countLottoTicket);
     }
     public static void printResult(Map<Rank,Integer> result){
         for(int i = Rank.values().length-1; i>=0 ; i--){
@@ -65,6 +63,14 @@ public class LottoController {
                 OutputView.printRank(Rank.values()[i].getMessage(),result.get(Rank.values()[i]));
             }
         }
+    }
+    public static void printRate(Map<Rank,Integer> result, int amount){
+        double rate = 0;
+        for(Rank rank : result.keySet()){
+            rate += (result.get(rank) * rank.getLottoMoney());
+        }
+        rate /= (amount*1000);
+        OutputView.printRate(rate);
     }
 
 

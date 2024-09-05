@@ -40,4 +40,7 @@ public enum Rank{
     public String getMessage(){
         return message;
     }
+    public int getLottoMoney(){
+        return lottoMoney;
+    }
 }

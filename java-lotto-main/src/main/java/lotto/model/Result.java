@@ -1,8 +1,8 @@
 package lotto.model;
 
 public class Result {
-    private final Lotto lotto;
-    private final int bonusBall;
+    private static Lotto lotto;
+    private static int bonusBall;
 
     public Result(Lotto lotto, int bonusBall) {
         this.lotto = lotto;
@@ -14,5 +14,4 @@ public class Result {
         boolean bonusMatch = userNumber.containNumber(bonusBall);
         return Rank.valueOf(countMatch, bonusMatch);
     }
-
 }

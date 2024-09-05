@@ -15,8 +15,8 @@ public class OutputView {
         System.out.println(message + countMatch + "개");
     }
 
-    public static void printRate(int rate){
-        System.out.println("총 수익률은" + rate + "%입니다.");
+    public static void printRate(double rate){
+        System.out.println("총 수익률은" + String.format("%.2f", rate) + "%입니다.");
     }
 
 }
