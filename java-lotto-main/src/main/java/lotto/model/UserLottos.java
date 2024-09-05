@@ -9,6 +9,7 @@ public class UserLottos {
         while(countLottoTicket > 0){
             List<Integer> lottoTicket = lottoMachine.generateNumber();
             new Lotto(lottoTicket);
+            System.out.println(lottoTicket);
             userLottos.add(lottoTicket);
             countLottoTicket--;
         }
