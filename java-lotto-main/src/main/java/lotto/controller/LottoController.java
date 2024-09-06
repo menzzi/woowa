@@ -14,7 +14,7 @@ public class LottoController {
         try{
             start();
         }catch (Exception e){
-            e.getStackTrace();
+            e.printStackTrace();
         }
     }
 
