@@ -53,15 +53,13 @@ public class LottoController {
         }
 
         for(int i = Rank.values().length-1; i>=0 ; i--){
-            printResult(result);
+            printResult(result,i);
         }
         printRate(result,countLottoTicket);
     }
-    public static void printResult(Map<Rank,Integer> result){
-        for(int i = Rank.values().length-1; i>=0 ; i--){
-            if(Rank.values()[i] != Rank.MISS){
-                OutputView.printRank(Rank.values()[i].getMessage(),result.get(Rank.values()[i]));
-            }
+    public static void printResult(Map<Rank,Integer> result, int i){
+        if(Rank.values()[i] != Rank.MISS){
+            OutputView.printRank(Rank.values()[i].getMessage(),result.get(Rank.values()[i]));
         }
     }
     public static void printRate(Map<Rank,Integer> result, int amount){
