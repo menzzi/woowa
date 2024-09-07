@@ -4,8 +4,8 @@ lotto/view/InputView.java
  lotto.view.InputView
 lotto/model/Rank.java
  lotto.model.Rank
-lotto/view/OutputView.java
- lotto.view.OutputView
+lotto/Application.java
+ lotto.Application
 lotto/model/Lotto.java
  lotto.model.Lotto
 lotto/model/Result.java
@@ -14,7 +14,7 @@ lotto/exception/Exception.java
  lotto.exception.Exception
 lotto/model/UserAmount.java
  lotto.model.UserAmount
-lotto/Application.java
- lotto.Application
+lotto/view/OutputView.java
+ lotto.view.OutputView
 lotto/controller/LottoController.java
  lotto.controller.LottoController

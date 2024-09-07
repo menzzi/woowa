@@ -67,7 +67,7 @@ public class LottoController {
         for(Rank rank : result.keySet()){
             rate += (result.get(rank) * rank.getLottoMoney());
         }
-        rate /= (amount*1000);
+        rate = (rate*100)/(amount*1000);
         OutputView.printRate(rate);
     }
 
