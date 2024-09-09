@@ -24,7 +24,7 @@ public class BridgeMaker {
             int bridgeNumber = bridgeNumberGenerator.generate();
             bridge.add(convertNumberToString(bridgeNumber));
         }
-        return null;
+        return bridge;
     }
 
     public String convertNumberToString(int bridgeNumber){
