@@ -14,12 +14,12 @@ public class Validator {
         }
     }
     public static void validateDirection(String direction){
-        if(!direction.equals("U")||!direction.equals("D")){
+        if(!direction.equals("U") && !direction.equals("D")){
             throw new IllegalArgumentException("[ERROR] 올바른 방향을 입력해주세요.");
         }
     }
     public static void validateRetryOrQuit(String retryOrQuit){
-        if(!retryOrQuit.equals("R")||!retryOrQuit.equals("Q")){
+        if(!retryOrQuit.equals("R") && !retryOrQuit.equals("Q")){
             throw new IllegalArgumentException("[ERROR] 재시도 : R, 종료 : Q 를 입력하세요.");
         }
     }

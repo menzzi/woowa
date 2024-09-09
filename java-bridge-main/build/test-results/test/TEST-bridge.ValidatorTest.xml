@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bridge.ValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-09-08T11:56:55" hostname="seominjiui-MacBookAir.local" time="0.015">
-  <properties/>
-  <testcase name="정상 입력: 3 이상의 숫자" classname="bridge.ValidatorTest" time="0.011"/>
-  <testcase name="범위를 벗어난 입력" classname="bridge.ValidatorTest" time="0.001"/>
-  <testcase name="숫자가 아닌 문자 입력" classname="bridge.ValidatorTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
