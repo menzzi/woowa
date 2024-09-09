@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BridgeTest {
+public class BridgeMakerTest {
     @Test
     @DisplayName("BridgeMaker 테스트")
     void bridgeMakerTest() {
