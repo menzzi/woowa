@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bridge.BridgeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-09T09:26:28" hostname="seominjiui-MacBookAir.local" time="0.007">
+<testsuite name="bridge.BridgeTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-09-09T09:36:56" hostname="seominjiui-MacBookAir.local" time="0.012">
   <properties/>
-  <testcase name="makeBridgeWithMockGenerator()" classname="bridge.BridgeTest" time="0.007"/>
+  <testcase name="Bridge 테스트 (입력 : D)" classname="bridge.BridgeTest" time="0.009"/>
+  <testcase name="Bridge 테스트 (입력 : UU)" classname="bridge.BridgeTest" time="0.0"/>
+  <testcase name="Bridge 테스트 (입력 : DD)" classname="bridge.BridgeTest" time="0.001"/>
+  <testcase name="Bridge 테스트 (입력 : UD)" classname="bridge.BridgeTest" time="0.0"/>
+  <testcase name="Bridge 테스트 (입력 : U)" classname="bridge.BridgeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
