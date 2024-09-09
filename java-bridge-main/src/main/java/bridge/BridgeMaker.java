@@ -28,7 +28,7 @@ public class BridgeMaker {
     }
 
     public String convertNumberToString(int bridgeNumber){
-        if(bridgeNumber==0)return "D";
+        if(bridgeNumber==0) return "D";
         return "U";
     }
 }
