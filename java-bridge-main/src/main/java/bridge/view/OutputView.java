@@ -16,8 +16,8 @@ public class OutputView {
      */
     public void printMap(Bridge userBridge) {
         Map<Integer, StringBuilder> bridgeStatus = userBridge.getBridgeStatus();
-        System.out.println(bridgeStatus.get(1).toString());
-        System.out.println(bridgeStatus.get(0).toString());
+        System.out.println("[" + bridgeStatus.get(1).toString() + "]");
+        System.out.println("[" + bridgeStatus.get(0).toString() + "]");
     }
 
     /**
@@ -28,8 +28,8 @@ public class OutputView {
     public void printResult(Bridge userBridge) {
         Map<Integer, StringBuilder> bridgeStatus = userBridge.getBridgeStatus();
         System.out.println("최종 게임 결과");
-        System.out.println(bridgeStatus.get(1).toString());
-        System.out.println(bridgeStatus.get(0).toString());
+        System.out.println("[" + bridgeStatus.get(1).toString() + "]");
+        System.out.println("[" + bridgeStatus.get(0).toString() + "]");
     }
 
 }
