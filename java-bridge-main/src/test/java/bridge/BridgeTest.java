@@ -64,4 +64,11 @@ public class BridgeTest {
         assertEquals(" O |   ", bridgeStatus.get(1).toString());
     }
 
+    @Test
+    @DisplayName("Bridge 테스트 (입력 : D)")
+    void updateBridgeStatus_DownFalse() {
+        bridge.updateBridgeStatus(0,false);
+        assertEquals(" X ", bridgeStatus.get(0).toString());
+        assertEquals("   ", bridgeStatus.get(1).toString());
+    }
 }
