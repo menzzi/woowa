@@ -4,23 +4,35 @@ import bridge.BridgeMaker;
 import bridge.BridgeNumberGenerator;
 import bridge.BridgeRandomNumberGenerator;
 import bridge.domain.Bridge;
+import bridge.view.InputView;
+import bridge.view.OutputView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import static bridge.BridgeGame.move;
 import static bridge.view.InputView.readBridgeSize;
 
 public class BridgeGameController {
+    boolean isRetry = true;
+    private Bridge userBridge;
+    public OutputView output;
+
     public void run() {
         System.out.println("다리 건너기 게임을 시작합니다.");
+        userBridge = new Bridge();
         do{
             startGame();
-        }while(isProgress());
+            output.printResult(userBridge);
+        }while(isRetry);
     }
     public void startGame(){
         int size = inputSize();
         List<String> answerBridge = makeAnswerBridge(size);
+        boolean isCollect = true;
+        while(isCollect){
+            isCollect = move(answerBridge,userBridge, InputView.readMoving());
+            output.printMap(userBridge);
+        }
 
     }
     public int inputSize(){
@@ -39,7 +51,4 @@ public class BridgeGameController {
         return bridgeMaker.makeBridge(size);
     }
 
-    public boolean isProgress(){
-        return false;
-    }
 }
