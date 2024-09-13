@@ -63,10 +63,9 @@ public class Bridge {
         return bridgeStatus;
     }
 
-    public Map<Integer, StringBuilder> appendBar(){
+    public void appendBar(){
         bridgeStatus.get(0).append("|");
         bridgeStatus.get(1).append("|");
-        return bridgeStatus;
     }
 
 }
