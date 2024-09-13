@@ -9,17 +9,12 @@ public class Bridge {
         this.bridgeStatus = bridgeStatus;
     }
 
-    public Map<Integer, StringBuilder> updateBridgeStatus(int direction) {
-        if(direction==0 && isFirst(direction)){
-            return appendDownFirst();
+    public Map<Integer, StringBuilder> updateBridgeStatus(int direction, boolean isTrue) {
+        if(isFirst(direction)){
+            return isTrue? appendCorrect(direction):appendIncorrect(direction);
         }
-        if(direction==0 && !isFirst(direction)){
-            return appendDown();
-        }
-        if(direction==1 && isFirst(direction)){
-            return appendUpFirst();
-        }
-        return appendUp();
+        appendBar();
+        return isTrue? appendCorrect(direction):appendIncorrect(direction);
     }
 
     public boolean isFirst(int direction){
@@ -28,24 +23,42 @@ public class Bridge {
         }
         return false;
     }
-    public Map<Integer, StringBuilder> appendDownFirst(){
+
+    private  Map<Integer, StringBuilder> appendCorrect(int direction){
+        return direction==0? appendDownTrue():appendUpTrue();
+    }
+
+    private  Map<Integer, StringBuilder> appendIncorrect(int direction){
+        return direction==0? appendDownFalse():appendUpFalse();
+    }
+
+    public Map<Integer, StringBuilder> appendDownTrue(){
         bridgeStatus.get(0).append(" O ");
         bridgeStatus.get(1).append("   ");
         return bridgeStatus;
     }
-    public Map<Integer, StringBuilder> appendUpFirst(){
+
+    public Map<Integer, StringBuilder> appendUpTrue(){
         bridgeStatus.get(0).append("   ");
         bridgeStatus.get(1).append(" O ");
         return bridgeStatus;
     }
-    public Map<Integer, StringBuilder> appendDown(){
-        bridgeStatus.get(0).append("| O ");
-        bridgeStatus.get(1).append("|   ");
+
+    public Map<Integer, StringBuilder> appendDownFalse(){
+        bridgeStatus.get(0).append(" X ");
+        bridgeStatus.get(1).append("   ");
         return bridgeStatus;
     }
-    public Map<Integer, StringBuilder> appendUp(){
-        bridgeStatus.get(0).append("|   ");
-        bridgeStatus.get(1).append("| O ");
+
+    public Map<Integer, StringBuilder> appendUpFalse(){
+        bridgeStatus.get(0).append("   ");
+        bridgeStatus.get(1).append(" X ");
+        return bridgeStatus;
+    }
+
+    public Map<Integer, StringBuilder> appendBar(){
+        bridgeStatus.get(0).append("|");
+        bridgeStatus.get(1).append("|");
         return bridgeStatus;
     }
 
