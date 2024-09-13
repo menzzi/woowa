@@ -16,10 +16,8 @@ public class BridgeTest {
 
     @BeforeEach
     void setUp() {
-        bridgeStatus = new HashMap<>();
-        bridgeStatus.put(0, new StringBuilder());
-        bridgeStatus.put(1, new StringBuilder());
-        bridge = new Bridge(bridgeStatus);
+        bridge = new Bridge();
+        bridgeStatus = bridge.getBridgeStatus();
     }
 
     @Test

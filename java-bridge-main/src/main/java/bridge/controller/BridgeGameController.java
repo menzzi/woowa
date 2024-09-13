@@ -3,8 +3,11 @@ package bridge.controller;
 import bridge.BridgeMaker;
 import bridge.BridgeNumberGenerator;
 import bridge.BridgeRandomNumberGenerator;
+import bridge.domain.Bridge;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static bridge.view.InputView.readBridgeSize;
 

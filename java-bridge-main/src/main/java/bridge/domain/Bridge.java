@@ -1,12 +1,19 @@
 package bridge.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Bridge {
     private final Map<Integer, StringBuilder> bridgeStatus;
 
-    public Bridge(Map<Integer, StringBuilder> bridgeStatus) {
-        this.bridgeStatus = bridgeStatus;
+    public Bridge() {
+        this.bridgeStatus = new HashMap<>();
+        bridgeStatus.put(0, new StringBuilder());
+        bridgeStatus.put(1, new StringBuilder());
+    }
+
+    public Map<Integer, StringBuilder> getBridgeStatus() {
+        return this.bridgeStatus;
     }
 
     public Map<Integer, StringBuilder> updateBridgeStatus(int direction, boolean isTrue) {
