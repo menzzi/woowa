@@ -1,6 +1,7 @@
 package bridge;
 
 import bridge.domain.Bridge;
+import bridge.domain.Result;
 import bridge.view.OutputView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -51,10 +52,10 @@ public class OutputViewTest {
         Map<Integer, StringBuilder> statusMap = userBridge.getBridgeStatus();
         statusMap.get(1).append(" O ");
         statusMap.get(0).append("   ");
-        outputView.printResult(userBridge);
+        outputView.printResult(userBridge, Result.SUCCESS,1);
 
         // 기대하는 출력
-        String expectedOutput = "최종 게임 결과\n[ O ]\n[   ]\n";
+        String expectedOutput = "최종 게임 결과\n[ O ]\n[   ]\n\n게임 성공 여부: 성공\n총 시도한 횟수: 1\n";
 
         // 캡처된 출력 확인
         assertEquals(expectedOutput, outputStreamCaptor.toString());
