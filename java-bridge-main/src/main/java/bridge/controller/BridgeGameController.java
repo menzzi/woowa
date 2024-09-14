@@ -37,7 +37,7 @@ public class BridgeGameController {
     }
     public boolean startGame(int size, List<String> answerBridge){
         for(int idx = 0;idx < size;idx++){
-            String direction = InputView.readMoving();
+            String direction = inputDirection();
             boolean isCollect = move(answerBridge,userBridge,direction,idx);
             output = new OutputView();
             output.printMap(userBridge);
@@ -47,13 +47,36 @@ public class BridgeGameController {
     }
 
     public boolean isRetryGame(){
-        String input = InputView.readGameCommand();
+        String input = inputRetry();
         if(input.equals("R")){
             userBridge = retry();
             tryCount++;
             return true;
         }
         return false;
+    }
+    public String inputRetry(){
+        String input;
+        try{
+            input = InputView.readGameCommand();
+        }catch(IllegalArgumentException e){
+            output = new OutputView();
+            output.printErrorMessage(e);
+            return inputRetry();
+        }
+        return input;
+    }
+
+    public String inputDirection(){
+        String input;
+        try{
+            input = InputView.readMoving();
+        }catch(IllegalArgumentException e){
+            output = new OutputView();
+            output.printErrorMessage(e);
+            return inputDirection();
+        }
+        return input;
     }
 
     public int inputSize(){
