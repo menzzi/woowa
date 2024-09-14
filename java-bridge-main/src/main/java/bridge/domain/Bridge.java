@@ -73,5 +73,4 @@ public class Bridge {
         bridgeStatus.get(0).append("|");
         bridgeStatus.get(1).append("|");
     }
-
 }
