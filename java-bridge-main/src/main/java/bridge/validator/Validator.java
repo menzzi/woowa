@@ -23,5 +23,4 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 재시도 : R, 종료 : Q 를 입력하세요.");
         }
     }
-
 }
