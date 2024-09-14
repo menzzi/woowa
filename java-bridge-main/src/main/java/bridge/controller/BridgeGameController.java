@@ -11,40 +11,58 @@ import bridge.view.OutputView;
 import java.util.List;
 
 import static bridge.BridgeGame.move;
+import static bridge.BridgeGame.retry;
+import static bridge.domain.Result.FAILURE;
 import static bridge.domain.Result.SUCCESS;
 import static bridge.view.InputView.readBridgeSize;
 
 public class BridgeGameController {
-    boolean isRetry = true;
     private Bridge userBridge;
-    public OutputView output;
+    private OutputView output;
     public int tryCount;
 
     public void run() {
         System.out.println("다리 건너기 게임을 시작합니다.");
-        userBridge = new Bridge();
-        tryCount = 0;
-        do{
-            startGame();
-            output.printResult(userBridge, isSuccess(),tryCount);
-        }while(isRetry);
-    }
-    public void startGame(){
         int size = inputSize();
         List<String> answerBridge = makeAnswerBridge(size);
-        boolean isCollect = true;
-        while(isCollect){
-            tryCount++;
-            isCollect = move(answerBridge,userBridge, InputView.readMoving());
-            output.printMap(userBridge);
-        }
-
+        userBridge = new Bridge();
+        boolean isSuccess;
+        tryCount = 1;
+        do{
+            isSuccess = startGame(size, answerBridge);
+            if(isSuccess)break;
+        }while(isRetryGame());
+        output = new OutputView();
+        output.printResult(userBridge,Result(isSuccess),tryCount);
     }
+    public boolean startGame(int size, List<String> answerBridge){
+        for(int idx = 0;idx < size;idx++){
+            String direction = InputView.readMoving();
+            boolean isCollect = move(answerBridge,userBridge,direction);
+            output = new OutputView();
+            output.printMap(userBridge);
+            if(!isCollect) return false;
+        }
+        return true;
+    }
+
+    public boolean isRetryGame(){
+        String input = InputView.readGameCommand();
+        if(input.equals("R")){
+            retry(userBridge);
+            tryCount++;
+            return true;
+        }
+        return false;
+    }
+
     public int inputSize(){
         int size;
         try{
             size = readBridgeSize();
         }catch(IllegalArgumentException e){
+            output = new OutputView();
+            output.printErrorMessage(e);
             return inputSize();
         }
         return size;
@@ -56,8 +74,10 @@ public class BridgeGameController {
         return bridgeMaker.makeBridge(size);
     }
 
-    public Result isSuccess(){
-        return SUCCESS;
+    public Result Result(boolean isSuccess){
+        if(isSuccess){
+            return SUCCESS;
+        }
+        return FAILURE;
     }
-
 }

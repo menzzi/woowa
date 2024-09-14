@@ -23,15 +23,15 @@ public class BridgeTest {
     @Test
     @DisplayName("Bridge 테스트 (입력 : D)")
     void updateBridgeStatus_Down() {
-        bridge.updateBridgeStatus(0,true);
+        bridge.updateBridgeStatus("D",true);
         assertEquals(" O ", bridgeStatus.get(0).toString());
         assertEquals("   ", bridgeStatus.get(1).toString());
     }
     @Test
     @DisplayName("Bridge 테스트 (입력 : DD)")
     void updateBridgeStatus_DownDown() {
-        bridge.updateBridgeStatus(0,true);
-        bridge.updateBridgeStatus(0,true);
+        bridge.updateBridgeStatus("D",true);
+        bridge.updateBridgeStatus("D",true);
         assertEquals(" O | O ", bridgeStatus.get(0).toString());
         assertEquals("   |   ", bridgeStatus.get(1).toString());
     }
@@ -39,7 +39,7 @@ public class BridgeTest {
     @Test
     @DisplayName("Bridge 테스트 (입력 : U)")
     void updateBridgeStatus_Up() {
-        bridge.updateBridgeStatus(1,true);
+        bridge.updateBridgeStatus("U",true);
         assertEquals("   ", bridgeStatus.get(0).toString());
         assertEquals(" O ", bridgeStatus.get(1).toString());
     }
@@ -47,8 +47,8 @@ public class BridgeTest {
     @Test
     @DisplayName("Bridge 테스트 (입력 : UU)")
     void updateBridgeStatus_UpUp() {
-        bridge.updateBridgeStatus(1,true);
-        bridge.updateBridgeStatus(1,true);
+        bridge.updateBridgeStatus("U",true);
+        bridge.updateBridgeStatus("U",true);
         assertEquals("   |   ", bridgeStatus.get(0).toString());
         assertEquals(" O | O ", bridgeStatus.get(1).toString());
     }
@@ -56,8 +56,8 @@ public class BridgeTest {
     @Test
     @DisplayName("Bridge 테스트 (입력 : UD)")
     void updateBridgeStatus_UpDown() {
-        bridge.updateBridgeStatus(1,true);
-        bridge.updateBridgeStatus(0,true);
+        bridge.updateBridgeStatus("U",true);
+        bridge.updateBridgeStatus("D",true);
         assertEquals("   | O ", bridgeStatus.get(0).toString());
         assertEquals(" O |   ", bridgeStatus.get(1).toString());
     }
@@ -65,7 +65,7 @@ public class BridgeTest {
     @Test
     @DisplayName("Bridge 테스트 (입력 : D)")
     void updateBridgeStatus_DownFalse() {
-        bridge.updateBridgeStatus(0,false);
+        bridge.updateBridgeStatus("D",false);
         assertEquals(" X ", bridgeStatus.get(0).toString());
         assertEquals("   ", bridgeStatus.get(1).toString());
     }

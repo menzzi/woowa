@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bridge.OutputViewTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-09-13T06:46:08" hostname="seominjiui-MacBookAir.local" time="0.025">
-  <properties/>
-  <testcase name="printResult 메서드 출력 테스트" classname="bridge.OutputViewTest" time="0.023"/>
-  <testcase name="printMap 메서드 출력 테스트" classname="bridge.OutputViewTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

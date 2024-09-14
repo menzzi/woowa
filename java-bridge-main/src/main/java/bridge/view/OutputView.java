@@ -36,4 +36,7 @@ public class OutputView {
         System.out.println("총 시도한 횟수: " + count);
     }
 
+    public void printErrorMessage(IllegalArgumentException e){
+        System.out.println(e.getMessage());
+    }
 }

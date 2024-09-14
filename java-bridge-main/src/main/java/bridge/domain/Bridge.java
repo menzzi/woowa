@@ -16,12 +16,18 @@ public class Bridge {
         return this.bridgeStatus;
     }
 
-    public Map<Integer, StringBuilder> updateBridgeStatus(int direction, boolean isTrue) {
+    public Map<Integer, StringBuilder> updateBridgeStatus(String direc, boolean isTrue) {
+        int direction = convertStringToInt(direc);
         if(isFirst(direction)){
             return isTrue? appendCorrect(direction):appendIncorrect(direction);
         }
         appendBar();
         return isTrue? appendCorrect(direction):appendIncorrect(direction);
+    }
+
+    public int convertStringToInt(String direc){
+        if(direc.equals("U"))return 1;
+        return 0;
     }
 
     public boolean isFirst(int direction){
