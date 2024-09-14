@@ -22,10 +22,8 @@ public class BridgeGameController {
     public int tryCount;
 
     public void run() {
-        System.out.println("다리 건너기 게임을 시작합니다.");
-        int size = inputSize();
+        int size = startFormat();
         List<String> answerBridge = makeAnswerBridge(size);
-        userBridge = new Bridge();
         boolean isSuccess;
         tryCount = 1;
         do{
@@ -35,6 +33,14 @@ public class BridgeGameController {
         output = new OutputView();
         output.printResult(userBridge,Result(isSuccess),tryCount);
     }
+
+    public int startFormat(){
+        System.out.println("다리 건너기 게임을 시작합니다.");
+        int size = inputSize();
+        userBridge = new Bridge();
+        return size;
+    }
+
     public boolean startGame(int size, List<String> answerBridge){
         for(int idx = 0;idx < size;idx++){
             String direction = inputDirection();
