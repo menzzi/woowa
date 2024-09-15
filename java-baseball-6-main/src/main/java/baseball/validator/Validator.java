@@ -36,8 +36,9 @@ public class Validator {
         validateRetryNumber(input);
     }
     public static void validateRetryNumber(String input){
-        if(!input.equals("1")||!input.equals("2")){
-            throw new IllegalArgumentException("유효하지 않은 값입니다. 프로그램을 종료합니다.");
+        if(input.equals("1")||input.equals("2")){
+            return;
         }
+        throw new IllegalArgumentException("유효하지 않은 값입니다. 프로그램을 종료합니다.");
     }
 }
