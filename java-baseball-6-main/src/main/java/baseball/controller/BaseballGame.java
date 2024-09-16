@@ -3,16 +3,24 @@ package baseball.controller;
 import baseball.domain.Computer;
 import baseball.domain.Result;
 import baseball.view.InputView;
+import baseball.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseballGame {
+
+    public void run(){
+        System.out.println("숫자 야구 게임을 시작합니다.");
+
+    }
     public void oneGame(){
         List<Integer> computerNumber = Computer.generateComputerNumber();
+
         List<Integer> userNumber = convertStringToList(InputView.userNumberInput());
 
         Result gameResult = compareNumber(computerNumber,userNumber);
+        OutputView.printResult(gameResult.getBall(),gameResult.getStrike());
 
     }
 
