@@ -29,7 +29,7 @@ public class BaseballGame {
         int strikeCount = 0;
 
         for(int i = 0; i < userNumber.size(); i++){
-            if(computerNumber.get(i)==userNumber.get(i)){
+            if(computerNumber.get(i) == userNumber.get(i)){
                 strikeCount++;
                 continue;
             }
