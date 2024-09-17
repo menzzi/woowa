@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="baseball.ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-29T07:54:33" hostname="seominjiui-MacBookAir.local" time="0.033">
+  <properties/>
+  <testcase name="예외_테스트()" classname="baseball.ApplicationTest" time="0.033"/>
+  <system-out><![CDATA[숫자 야구 게임을 시작합니다.
+숫자 3개를 입력해주세요.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

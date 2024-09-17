@@ -1,0 +1,20 @@
+lotto/model/UserLottos.java
+ lotto.model.UserLottos
+lotto/view/InputView.java
+ lotto.view.InputView
+lotto/model/Rank.java
+ lotto.model.Rank
+lotto/Application.java
+ lotto.Application
+lotto/model/Lotto.java
+ lotto.model.Lotto
+lotto/model/Result.java
+ lotto.model.Result
+lotto/exception/Exception.java
+ lotto.exception.Exception
+lotto/model/UserAmount.java
+ lotto.model.UserAmount
+lotto/view/OutputView.java
+ lotto.view.OutputView
+lotto/controller/LottoController.java
+ lotto.controller.LottoController
