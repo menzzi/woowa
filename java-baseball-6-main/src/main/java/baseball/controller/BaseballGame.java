@@ -12,6 +12,7 @@ public class BaseballGame {
 
     private final InputView input;
     private final OutputView output;
+    private List<Integer> computerNumber;
 
     public BaseballGame(InputView input, OutputView output) {
         this.input = input;
@@ -25,12 +26,12 @@ public class BaseballGame {
 
     }
     public void oneGame(){
-        List<Integer> computerNumber = Computer.generateComputerNumber();
+        computerNumber = Computer.generateComputerNumber();
         boolean proceed = true;
         while(proceed){
             System.out.print("숫자를 입력해주세요 :");
             List<Integer> userNumber = convertStringToList(input.userNumberInput());
-            Result gameResult = compareNumber(computerNumber,userNumber);
+            Result gameResult = compareNumber(userNumber);
             output.printResult(gameResult.getBall(),gameResult.getStrike());
 
             proceed = checkThreeStrike(gameResult.getStrike());
@@ -40,25 +41,22 @@ public class BaseballGame {
     public List<Integer> convertStringToList(String userInput){
         List<Integer> user = new ArrayList<>();
         for(int i=0;i<userInput.length();i++){
-            user.add((int) userInput.charAt(i));
+            user.add(Character.getNumericValue(userInput.charAt(i)));
         }
         return user;
     }
 
-    public Result compareNumber(List<Integer> computerNumber, List<Integer> userNumber){
+    public Result compareNumber(List<Integer> userNumber){
         int ballCount = 0;
         int strikeCount = 0;
 
         for(int i = 0; i < userNumber.size(); i++){
-            if(computerNumber.get(i) == userNumber.get(i)){
+            if(computerNumber.get(i).equals(userNumber.get(i))) {
                 strikeCount++;
-                continue;
-            }
-            if(computerNumber.contains(userNumber.get(i))){
+            }else if(computerNumber.contains(userNumber.get(i))){
                 ballCount++;
             }
         }
-
         return new Result(ballCount,strikeCount);
     }
 
