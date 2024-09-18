@@ -19,6 +19,14 @@ public class ValidatorTest {
         });
     }
     @Test
+    void 이름_validator_실패2(){
+        final List<String> input = new ArrayList<>();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.validateName(input);
+        });
+    }
+    @Test
     void 이름_validator_성공(){
         final List<String> input = new ArrayList<>();
         input.add("pobi");
