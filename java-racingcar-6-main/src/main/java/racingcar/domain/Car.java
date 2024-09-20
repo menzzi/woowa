@@ -6,13 +6,6 @@ import java.util.Map;
 
 public class Car {
 
-    public static Map<String,String> plusRoad(List<String> names, Map<String,String> cars){
-        for (String name : names) {
-            cars.put(name, cars.getOrDefault(name, "") + "-");
-        }
-        return cars;
-    }
-
     public static Map<String,String> resetCar(List<String> names){
         Map<String,String> cars = new HashMap<>();
 
