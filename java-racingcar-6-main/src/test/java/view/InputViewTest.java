@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class InputViewTest {
+    private final InputView inputView = new InputView();
 
     @AfterEach
     void closeConsole() {
@@ -23,7 +24,7 @@ public class InputViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            InputView.inputTryNumber();
+            inputView.inputTryNumber();
         });
     }
 
@@ -33,7 +34,7 @@ public class InputViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertDoesNotThrow(() -> {
-            InputView.inputTryNumber();
+            inputView.inputTryNumber();
         });
     }
 }
