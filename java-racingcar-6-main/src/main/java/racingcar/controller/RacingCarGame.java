@@ -32,8 +32,7 @@ public class RacingCarGame {
         List<String> carNames = convertStringToList(input.inputCarNames());
         Validator.validateName(carNames);
         cars = Car.resetCar(carNames);
-        int tryNum = input.inputTryNumber();
-        proceedRacing(tryNum);
+        proceedRacing(input.inputTryNumber());
         List<String> racingResult = compareRoads();
 
         output.printWinner(racingResult);
@@ -78,6 +77,4 @@ public class RacingCarGame {
         }
         return result;
     }
-
-
 }
