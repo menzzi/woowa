@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.*;
 
@@ -11,14 +12,21 @@ import java.util.*;
 public class RacingCarGame {
 
     private final InputView input;
+    private final OutputView output;
+
     private static Map<String,String> cars;
 
-    public RacingCarGame(InputView input) {
+    public RacingCarGame(InputView input,OutputView output) {
         this.input = input;
+        this.output = output;
     }
 
     public void run(){
-
+        try{
+            oneGame();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
     }
     public void oneGame(){
         List<String> carNames = convertStringToList(input.inputCarNames());
@@ -28,14 +36,17 @@ public class RacingCarGame {
         proceedRacing(tryNum);
         List<String> racingResult = compareRoads();
 
+        output.printWinner(racingResult);
+
     }
     public List<String> convertStringToList(String carNames){
         return Arrays.asList(carNames.split(","));
     }
 
-    public static void proceedRacing(int num){
+    public void proceedRacing(int num){
         for(int i=0;i<num;i++){
             moveOnce();
+            output.printResult(cars);
         }
     }
     public static void moveOnce(){
