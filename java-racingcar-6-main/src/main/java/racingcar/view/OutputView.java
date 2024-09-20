@@ -18,7 +18,7 @@ public class OutputView {
         }else{
             stringBuilder.append("최종 우승자 : ");
             printManyWinner(result,stringBuilder);
-            System.out.println(stringBuilder.toString());
+            System.out.println(stringBuilder);
         }
     }
     public void printManyWinner(List<String> result,StringBuilder stringBuilder){

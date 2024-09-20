@@ -30,7 +30,7 @@ public class OutputViewTest {
         outputView.printResult(cars);
 
         // Then
-        String expectedOutput = "pobi : ----\nwoni : ---\n";
+        String expectedOutput = "pobi : ----\nwoni : ---\n\n";
         assertEquals(expectedOutput, outputStream.toString());
 
         // Reset the output
