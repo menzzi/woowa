@@ -9,11 +9,11 @@ public class InputView {
         String carNames = Console.readLine();
         return carNames;
     }
-    public static String inputTryNumber(){
+    public static int inputTryNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
         String number = Console.readLine();
         Validator.validateTryNumber(number);
-        return number;
+        return Integer.parseInt(number);
     }
 
 }
