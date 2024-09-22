@@ -37,7 +37,8 @@
 
 ### 기능
 
-- [ ]  로또 생성
+- [x]  로또 생성
+    - [x]  중복되면 예외처리
 - [ ]  당첨 번호 List로 변경
     - [ ]  범위 벗어나면 예외처리(1~45)
     - [ ]  숫자 단위가 아니면 예외 처리
@@ -54,7 +55,7 @@
 - domain
     - Lotto → 로또번호 생성
     - Result → enum으로 결과
-    - WinnigLotto → 당첨번호 저장
+    - WinnigLotto → 당첨번호
 - validator
     - Validator
 - view
