@@ -55,7 +55,7 @@
 - domain
     - Lotto → 로또번호 생성
     - Result → enum으로 결과
-    - WinnigLotto → 당첨번호
+    - WinningLotto → 당첨번호
 - validator
     - Validator
 - view
