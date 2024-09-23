@@ -43,7 +43,7 @@
 - [x]  티켓 개수 계산 - controller
 - [x]  로또 생성 - Lotto
     - [x]  중복되면 예외처리
-- [ ]  당첨 번호 List로 변경
+- [x]  당첨 번호 List로 변경
     - [x]  범위 벗어나면 예외처리(1~45) - controller
     - [x]  숫자x단위가 아니면 예외 처리 - controller
     - [x]  중복되면 예외처리 - domain
