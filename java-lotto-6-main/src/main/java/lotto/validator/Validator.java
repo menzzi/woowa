@@ -28,4 +28,10 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 로또 번호 범위는 1~45 입니다.");
         }
     }
+    public static void validateWinningNumber(String[] input){
+        for(String value:input){
+            validateLottoNumberRange(value);
+            validateNumberFormat(value);
+        }
+    }
 }
