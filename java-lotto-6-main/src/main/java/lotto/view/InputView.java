@@ -10,9 +10,11 @@ public class InputView {
         Validator.validateInputMoney(input);
         return input;
     }
-    public static String inputWinLottoNumber(){
+    public static String[] inputWinLottoNumber(){
         System.out.println("당첨 번호를 입력해 주세요.");
-        return Console.readLine();
+        String[] splitInput = Console.readLine().split(",");
+        Validator.validateWinningNumber(splitInput);
+        return splitInput;
     }
     public static int inputBonusNumber(){
         System.out.println("보너스 번호를 입력해 주세요.");
