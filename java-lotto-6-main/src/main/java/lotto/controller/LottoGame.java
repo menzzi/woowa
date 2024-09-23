@@ -28,12 +28,8 @@ public class LottoGame {
         String userMoney = inputMoney();
         int ticketCount = convertMoneyToTicketCount(userMoney);
         output.printTicketCount(ticketCount);
-        List<Lotto> lottos = new ArrayList<>();
-        for(int i=0;i<ticketCount;i++){
-            List<Integer> lotto = Lotto.generateLotto();
-            lottos.add(new Lotto(lotto));
-        }
-        //로또 결과 출력
+        List<Lotto> lottos = generateLottoTicket(ticketCount);
+        output.printLottoTicketsResult(lottos);
         winningLotto = makeWinningLotto();
         // 생성한 로또와 결과 비교하기
         // 수익률 출력하기
@@ -91,5 +87,14 @@ public class LottoGame {
             return makeWinningLotto();
         }
         return winningLotto;
+    }
+
+    private List<Lotto> generateLottoTicket(int ticketCount){
+        List<Lotto> lottos = new ArrayList<>();
+        for(int i=0;i<ticketCount;i++){
+            List<Integer> lotto = Lotto.generateLotto();
+            lottos.add(new Lotto(lotto));
+        }
+        return lottos;
     }
 }
