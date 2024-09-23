@@ -45,6 +45,33 @@ public class InputViewTest {
         });
     }
     @Test
+    void 사용자_당첨번호_입력_실패() {
+        final String input = "1,2,3,4,5,46";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            inputView.inputWinLottoNumber();
+        });
+    }
+    @Test
+    void 사용자_당첨번호_입력_실패2() {
+        final String input = "hello";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            inputView.inputWinLottoNumber();
+        });
+    }
+    @Test
+    void 사용자_당첨번호_입력_성공() {
+        final String input = "1,2,3,4,5,6";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertDoesNotThrow(() -> {
+            inputView.inputWinLottoNumber();
+        });
+    }
+    @Test
     void 사용자_보너스번호_입력_실패() {
         final String input = "hello";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
