@@ -8,13 +8,14 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OutputViewTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
     private OutputView outputView;
 
     @BeforeEach
@@ -41,12 +42,14 @@ public class OutputViewTest {
 
     @Test
     void 결과출력_성공() {
-        List<Result> resultList = new ArrayList<>();
-        resultList.add(Result.FIRST);
-        resultList.add(Result.FIFTH);
-        resultList.add(Result.FIRST);
-
-        outputView.printResultList(resultList);
+        Map<Result, Integer> resultMap = new HashMap<>();
+        resultMap.put(Result.FIRST, 2);
+        resultMap.put(Result.SECOND, 0);
+        resultMap.put(Result.THIRD, 0);
+        resultMap.put(Result.FOURTH, 0);
+        resultMap.put(Result.FIFTH, 1);
+        resultMap.put(Result.MISS, 2);
+        outputView.printResultList(resultMap);
 
         String expectedOutput = "6개 일치 (2,000,000,000원) - 2개\n" +
                 "5개 일치, 보너스 볼 일치 (30,000,000원) - 0개\n" +
