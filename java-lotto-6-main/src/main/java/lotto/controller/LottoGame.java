@@ -36,9 +36,8 @@ public class LottoGame {
         winningLotto = makeWinningLotto();
         List<List<Integer>> results = compareLottos(lottos,winningLotto);
         List<Result> resultList = returnListToResult(results);
-        output.printResultList(resultList);
-        // 수익률 출력하기
-
+        output.printResultList(resultCount(resultList));
+        printEarningRate(resultCount(resultList),ticketCount);
     }
 
     private int convertMoneyToTicketCount(String userMoney){
@@ -125,13 +124,22 @@ public class LottoGame {
         return resultList;
     }
 
-    private void printEarningRate(List<Result> resultList, int ticketAmount){
+    private void printEarningRate(Map<Result, Integer> result, int ticketAmount){
+        int totalEarnings = 0;
 
+        for (Map.Entry<Result, Integer> entry : result.entrySet()) {
+            Result res = entry.getKey();
+            int count = entry.getValue();
+
+            totalEarnings += count * res.getLottoMoney();
+        }
+
+        double earningRate = (double) totalEarnings / ticketAmount * 100;
+        output.printRate(earningRate);
     }
 
     private Map<Result, Integer> resultCount(List<Result> resultList){
         Map<Result, Integer> resultCount = new HashMap<>();
-
         for (Result result : Result.values()) {
             resultCount.put(result, 0);
         }
