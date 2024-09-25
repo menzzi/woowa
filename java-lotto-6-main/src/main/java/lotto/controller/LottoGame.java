@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.Lotto;
+import lotto.domain.Result;
 import lotto.domain.WinningLotto;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -96,5 +97,14 @@ public class LottoGame {
             lottos.add(new Lotto(lotto));
         }
         return lottos;
+    }
+
+    private List<Integer> compareLottos(List<Lotto> lottos, WinningLotto winningLotto){
+        List<Integer> results = new ArrayList<>();
+        for(Lotto lotto:lottos){
+            int matchCount = lotto.countMatchNumber(winningLotto);
+            results.add(matchCount);
+        }
+        return results;
     }
 }

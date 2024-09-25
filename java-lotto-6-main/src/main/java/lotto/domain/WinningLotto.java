@@ -33,4 +33,12 @@ public class WinningLotto {
             throw new IllegalArgumentException("[ERROR] 로또 번호와 중복되면 안됩니다.");
         }
     }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
+
+    public List<Integer> getWinningLotto() {
+        return winningLotto;
+    }
 }
