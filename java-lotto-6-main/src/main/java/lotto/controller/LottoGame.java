@@ -32,9 +32,9 @@ public class LottoGame {
         List<Lotto> lottos = generateLottoTicket(ticketCount);
         output.printLottoTicketsResult(lottos);
         winningLotto = makeWinningLotto();
-        // 생성한 로또와 결과 비교하기
+        List<Integer> results = compareLottos(lottos,winningLotto);
+        // bonus 일치하는지 비교한것도 함께 넣어서 Result에 넣어서 결과 출력
         // 수익률 출력하기
-
 
     }
 

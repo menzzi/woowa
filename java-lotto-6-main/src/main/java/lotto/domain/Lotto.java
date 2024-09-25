@@ -42,6 +42,14 @@ public class Lotto {
         return matchCount;
     }
 
+    public boolean isMatchBonusNumber(WinningLotto winningLotto){
+        boolean checkMatch = false;
+        if(numbers.contains(winningLotto.getBonusNumber())){
+            checkMatch = true;
+        }
+        return checkMatch;
+    }
+
     @Override
     public String toString() {
         return numbers.toString();
