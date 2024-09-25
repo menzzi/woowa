@@ -32,8 +32,8 @@ public class LottoGame {
         List<Lotto> lottos = generateLottoTicket(ticketCount);
         output.printLottoTicketsResult(lottos);
         winningLotto = makeWinningLotto();
-        List<Integer> results = compareLottos(lottos,winningLotto);
-        // bonus 일치하는지 비교한것도 함께 넣어서 Result에 넣어서 결과 출력
+        List<List<Integer>> results = compareLottos(lottos,winningLotto);
+        List<Result> resultList = returnListToResult(results);
         // 수익률 출력하기
 
     }
@@ -110,5 +110,15 @@ public class LottoGame {
             results.add(result);
         }
         return results;
+    }
+
+    private List<Result> returnListToResult(List<List<Integer>> results){
+        List<Result> resultList = new ArrayList<>();
+        for(List<Integer> result : results){
+            int countMatch = result.get(0);
+            int countBonus = result.get(1);
+            resultList.add(Result.valueOfMatchCount(countMatch,countBonus));
+        }
+        return resultList;
     }
 }
