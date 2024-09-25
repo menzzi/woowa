@@ -99,11 +99,15 @@ public class LottoGame {
         return lottos;
     }
 
-    private List<Integer> compareLottos(List<Lotto> lottos, WinningLotto winningLotto){
-        List<Integer> results = new ArrayList<>();
+    private List<List<Integer>> compareLottos(List<Lotto> lottos, WinningLotto winningLotto){
+        List<List<Integer>> results = new ArrayList<>();
         for(Lotto lotto:lottos){
-            int matchCount = lotto.countMatchNumber(winningLotto);
-            results.add(matchCount);
+            List<Integer> result = new ArrayList<>();
+            int countMatchNumber = lotto.countMatchNumber(winningLotto);
+            result.add(0,countMatchNumber);
+            int countMatchBonusNumber = lotto.checkMatchBonusNumber(winningLotto);
+            result.add(1,countMatchBonusNumber);
+            results.add(result);
         }
         return results;
     }
