@@ -42,12 +42,12 @@ public class Lotto {
         return matchCount;
     }
 
-    public boolean isMatchBonusNumber(WinningLotto winningLotto){
-        boolean checkMatch = false;
+    public int checkMatchBonusNumber(WinningLotto winningLotto){
+        int countMatch = 0;
         if(numbers.contains(winningLotto.getBonusNumber())){
-            checkMatch = true;
+            countMatch = 1;
         }
-        return checkMatch;
+        return countMatch;
     }
 
     @Override
