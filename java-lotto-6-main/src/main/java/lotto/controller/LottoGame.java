@@ -17,17 +17,16 @@ public class LottoGame {
     private final OutputView output;
     private WinningLotto winningLotto;
 
-    public LottoGame(InputView input, OutputView output, WinningLotto winningLotto) {
+    public LottoGame(InputView input, OutputView output) {
         this.input = input;
         this.output = output;
-        this.winningLotto = winningLotto;
     }
 
     public void run(){
         try {
             proceedGame();
         } catch (IllegalArgumentException e) {
-            System.out.println("입력 값이 올바르지 않습니다. 다시 시도해 주세요.");
+            System.out.println("[ERROR] 입력 값이 올바르지 않습니다. 다시 시도해 주세요.");
             run(); // 재귀적으로 다시 실행하여 재입력 유도
         }
     }
@@ -61,6 +60,7 @@ public class LottoGame {
         try{
             userMoney = input.inputMoney();
         } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return inputMoney();
         }
         return userMoney;
@@ -139,7 +139,7 @@ public class LottoGame {
             totalEarnings += count * res.getLottoMoney();
         }
 
-        double earningRate = (double) totalEarnings / ticketAmount * 100;
+        double earningRate = (double) totalEarnings / (ticketAmount*10);
         output.printRate(earningRate);
     }
 
