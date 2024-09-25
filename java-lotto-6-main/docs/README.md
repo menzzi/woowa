@@ -54,8 +54,8 @@
 ### 수정사항 ㅜㅜ...
 - [ ] 당첨번호 입력 중복 에러
 - [ ] 당첨번호 6자리 이상 에러
-- [ ] 보너스 번호 중복 에러
-
+- [ ] 보너스 번호 중복 에러  
+=> WinnigLotto에 있는 validate들을 빼서 validator, InputView, LottoGame으로 수정!!
 ---
  ### 전체 구조
 - controller
