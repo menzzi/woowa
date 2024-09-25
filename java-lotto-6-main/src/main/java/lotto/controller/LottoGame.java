@@ -71,6 +71,7 @@ public class LottoGame {
         try{
             lotto = input.inputWinLottoNumber();
         }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
             return inputWinningLotto();
         }
         return lotto;
@@ -81,6 +82,7 @@ public class LottoGame {
         try{
             bonus = input.inputBonusNumber();
         }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
             return inputBonusNumber();
         }
         return bonus;
@@ -92,6 +94,7 @@ public class LottoGame {
             int bonus = inputBonusNumber();
             winningLotto = new WinningLotto(covertStringToList(winningNumbers),bonus);
         }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
             return makeWinningLotto();
         }
         return winningLotto;
@@ -131,14 +134,12 @@ public class LottoGame {
 
     private void printEarningRate(Map<Result, Integer> result, int ticketAmount){
         int totalEarnings = 0;
-
         for (Map.Entry<Result, Integer> entry : result.entrySet()) {
             Result res = entry.getKey();
             int count = entry.getValue();
 
             totalEarnings += count * res.getLottoMoney();
         }
-
         double earningRate = (double) totalEarnings / (ticketAmount*10);
         output.printRate(earningRate);
     }
