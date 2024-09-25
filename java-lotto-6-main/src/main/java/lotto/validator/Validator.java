@@ -1,5 +1,8 @@
 package lotto.validator;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class Validator {
     public static void validateInputMoney(String input){
         validateNumberFormat(input);
@@ -28,10 +31,26 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 로또 번호 범위는 1~45 입니다.");
         }
     }
+    public static void validateDuplicate(String[] numbers){
+        HashSet<Integer> lottoNumbers = new HashSet<>();
+        for(String value:numbers){
+            lottoNumbers.add(Integer.parseInt(value));
+        }
+        if(lottoNumbers.size() != numbers.length){
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되면 안됩니다.");
+        }
+    }
+    public static void validateLength(String[] input) {
+        if (input.length != 6) {
+            throw new IllegalArgumentException("[ERROR] 6자리를 입력하세요.");
+        }
+    }
     public static void validateWinningNumber(String[] input){
+        validateLength(input);
         for(String value:input){
             validateLottoNumberRange(value);
             validateNumberFormat(value);
         }
+        validateDuplicate(input);
     }
 }
