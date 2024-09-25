@@ -18,19 +18,10 @@ public class OutputView {
         }
     }
 
-    public void printResultList(List<Result> resultList){
-        Map<Result, Integer> resultCount = new HashMap<>();
-
+    public void printResultList(Map<Result, Integer> resultMap){
         for (Result result : Result.values()) {
-            resultCount.put(result, 0);
-        }
-        for (Result result : resultList) {
-            resultCount.put(result, resultCount.get(result) + 1);
-        }
-
-        for(Result result: Result.values()){
-            if(result == Result.MISS) continue;
-            System.out.println(result.getMessage() + resultCount.get(result) + "개");
+            if (result == Result.MISS) continue;
+            System.out.println(result.getMessage() + resultMap.get(result) + "개");
         }
     }
 
