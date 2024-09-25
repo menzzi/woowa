@@ -24,7 +24,12 @@ public class LottoGame {
     }
 
     public void run(){
-
+        try {
+            proceedGame();
+        } catch (IllegalArgumentException e) {
+            System.out.println("입력 값이 올바르지 않습니다. 다시 시도해 주세요.");
+            run(); // 재귀적으로 다시 실행하여 재입력 유도
+        }
     }
 
     public void proceedGame(){
