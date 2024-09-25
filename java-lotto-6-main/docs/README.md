@@ -56,7 +56,7 @@
 - [x] 당첨번호 6자리 이상 에러
 - [x] 보너스 번호 중복 에러  
 => WinnigLotto에 있는 validate들을 빼서 validator, InputView, LottoGame으로 수정!!
-- [ ] 로또 오름차순으로 출력
+- [x] 로또 오름차순으로 출력
 ---
  ### 전체 구조
 - controller
