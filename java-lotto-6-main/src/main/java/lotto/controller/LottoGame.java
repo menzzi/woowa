@@ -34,6 +34,7 @@ public class LottoGame {
         winningLotto = makeWinningLotto();
         List<List<Integer>> results = compareLottos(lottos,winningLotto);
         List<Result> resultList = returnListToResult(results);
+        output.printResultList(resultList);
         // 수익률 출력하기
 
     }

@@ -33,4 +33,8 @@ public class OutputView {
             System.out.println(result.getMessage() + resultCount.get(result) + "개");
         }
     }
+
+    public void printRate(double rate){
+        System.out.println("총 수익률은 " + rate + "%입니다.");
+    }
 }
