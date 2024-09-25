@@ -7,7 +7,9 @@ import lotto.view.InputView;
 import lotto.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LottoGame {
 
@@ -121,5 +123,21 @@ public class LottoGame {
             resultList.add(Result.valueOfMatchCount(countMatch,countBonus));
         }
         return resultList;
+    }
+
+    private void printEarningRate(List<Result> resultList, int ticketAmount){
+
+    }
+
+    private Map<Result, Integer> resultCount(List<Result> resultList){
+        Map<Result, Integer> resultCount = new HashMap<>();
+
+        for (Result result : Result.values()) {
+            resultCount.put(result, 0);
+        }
+        for (Result result : resultList) {
+            resultCount.put(result, resultCount.get(result) + 1);
+        }
+        return resultCount;
     }
 }
