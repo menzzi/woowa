@@ -15,9 +15,12 @@ public class OutputView {
         for(Lotto lotto : lottos){
             System.out.println(lotto);
         }
+        System.out.println();
     }
 
     public void printResultList(Map<Result, Integer> resultMap){
+        System.out.println("당첨 통계");
+        System.out.println("---");
         for (Result result : Result.values()) {
             if (result == Result.MISS) continue;
             System.out.println(result.getMessage() + resultMap.get(result) + "개");
