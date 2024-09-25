@@ -19,11 +19,11 @@ public enum Result {
     private final int lottoMoney;
     private final String message;
 
-    public static Result valueOfMatchCount(int countMatch, boolean hasBonus) {
+    public static Result valueOfMatchCount(int countMatch, int countBonus) {
         if (countMatch == 6) {
             return FIRST;
         }
-        if (countMatch == 5 && hasBonus) {
+        if (countMatch == 5 && countBonus == 1) {
             return SECOND;
         }
         if (countMatch == 5) {
