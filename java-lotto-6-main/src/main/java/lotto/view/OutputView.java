@@ -29,6 +29,7 @@ public class OutputView {
         }
 
         for(Result result: Result.values()){
+            if(result == Result.MISS) continue;
             System.out.println(result.getMessage() + resultCount.get(result) + "개");
         }
     }

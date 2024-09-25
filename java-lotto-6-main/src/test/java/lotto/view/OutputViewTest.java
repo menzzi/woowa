@@ -52,8 +52,7 @@ public class OutputViewTest {
                 "5개 일치, 보너스 볼 일치 (30,000,000원) - 0개\n" +
                 "5개 일치 (1,500,000원) - 0개\n" +
                 "4개 일치 (50,000원) - 0개\n" +
-                "3개 일치 (5,000원) - 1개\n" +
-                "\n";
+                "3개 일치 (5,000원) - 1개\n";
 
         assertEquals(expectedOutput, outputStream.toString());
     }
