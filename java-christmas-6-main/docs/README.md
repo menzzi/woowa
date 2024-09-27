@@ -44,6 +44,18 @@
   - [ ] 주문 (enum)
 
 ---
+### 구조
+- controller
+- domain
+  - Menu 
+  - Badge
+- validator
+  - Validator
+- view
+  - InputView
+  - OutputView
+
+---
 #### 12월 이벤트 계획
 - 크리스마스 디데이 할인
   - 이벤트 기간: 2023.12.1 ~ 2023.12.25
