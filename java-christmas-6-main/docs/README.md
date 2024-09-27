@@ -42,6 +42,7 @@
   - [ ] 배지 부여 (enum)
   - [ ] 전체 금액 계산
   - [ ] 주문 (enum)
+  - [ ] 요일 계산
 
 ---
 ### 구조
@@ -49,6 +50,7 @@
 - domain
   - Menu 
   - Badge
+- util
 - validator
   - Validator
 - view
