@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.domain.Menu;
 import christmas.validator.Validator;
 import christmas.view.InputView;
 
@@ -46,6 +47,17 @@ public class PlannerController {
         }
         Validator.validateTotalNumber(totalCount);
         return orderList;
+    }
+
+    private boolean checkOnlyDrink(Map<String,Integer> orderList){
+        for(String menuName:orderList.keySet()){
+            try {
+                Menu.DRINKS.getItemByName(menuName);
+            } catch (IllegalArgumentException e) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private int dealMenuNumber(String count){
