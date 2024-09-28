@@ -45,14 +45,14 @@
     - [x] 주말 할인
     - [x] 특별 할인
   - [x] 증정 이벤트
-  - [ ] 배지 부여 - 배지 (enum) 으로
-  - [ ] 전체 금액 계산
   - [x] 주문
-  - [ ] 요일 계산
+  - [ ] 전체 금액 계산
+  - [ ] 배지 부여 - 배지 (enum) 으로
 
 ---
 ### 구조
 - controller
+  - PlannerController
 - domain
   - Menu
   - MenuCategory
@@ -60,6 +60,7 @@
   - Badge
 - util
   - Discount
+  - PresentationEvent
 - validator
   - Validator
 - view
