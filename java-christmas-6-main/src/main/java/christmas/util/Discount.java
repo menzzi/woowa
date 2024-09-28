@@ -40,9 +40,10 @@ public class Discount {
     }
 
     public int discountPolicy(int orderDate,int dessertCount, int mainCount){
-        calculateChristmasDiscount(orderDate);
-        calculateWeekdayDiscount(orderDate,dessertCount);
-        calculateWeekendDiscount(orderDate,mainCount);
-        calculateSpecialDiscount(orderDate);
+        int christmasDiscount = calculateChristmasDiscount(orderDate);
+        int weekdayDiscount = calculateWeekdayDiscount(orderDate,dessertCount);
+        int weekendDiscount = calculateWeekendDiscount(orderDate,mainCount);
+        int specialDiscount = calculateSpecialDiscount(orderDate);
+        return christmasDiscount + weekdayDiscount + weekendDiscount + specialDiscount;
     }
 }
