@@ -29,6 +29,7 @@ public class PlannerController {
         int totalCount = 0;
         Map<String,Integer> orderList = new HashMap<>();
         orderList = registerOrder(userInput, orderList,totalCount);
+        Validator.validateOnlyDrink(checkOnlyDrink(orderList));
         return orderList;
     }
 
