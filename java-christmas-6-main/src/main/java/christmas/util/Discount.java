@@ -25,4 +25,11 @@ public class Discount {
         }
         return dessertCount * WEEKDAY_DISCOUNT_AMOUNT;
     }
+
+    public int weekendDiscount(int orderDate, int mainCount){
+        if( WEEKEND_DATES.contains(orderDate)){
+            return mainCount * WEEKEND_DISCOUNT_AMOUNT;
+        }
+        return 0;
+    }
 }
