@@ -10,7 +10,6 @@ public class Discount {
     private static final int SPECIAL_DISCOUNT_AMOUNT = 1000;
     private static final int EVENT_START = 1;
     private static final int CHRISTMAS_EVENT_END = 25;
-    private static final int OTHER_EVENT_END = 31;
 
     public int calculateChristmasDiscount(int orderDate){
         if(orderDate > CHRISTMAS_EVENT_END){
@@ -29,6 +28,13 @@ public class Discount {
     public int weekendDiscount(int orderDate, int mainCount){
         if( WEEKEND_DATES.contains(orderDate)){
             return mainCount * WEEKEND_DISCOUNT_AMOUNT;
+        }
+        return 0;
+    }
+
+    public int specialDiscount(int orderDate){
+        if(STAR_DATES.contains(orderDate)){
+            return SPECIAL_DISCOUNT_AMOUNT;
         }
         return 0;
     }
