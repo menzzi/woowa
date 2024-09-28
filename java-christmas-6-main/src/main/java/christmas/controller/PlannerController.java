@@ -23,9 +23,18 @@ public class PlannerController {
     }
 
     private Map<String,Integer> orderMenu(){
-        Map<String,Integer> orderList = new HashMap<>();
         String[] userInput = convertStringToArray(inputView.inputMenu());
         int totalCount = 0;
+        Map<String,Integer> orderList = new HashMap<>();
+        orderList = registerOrder(userInput, orderList,totalCount);
+        return orderList;
+    }
+
+    private String[] convertStringToArray(String input){
+        return input.split(",");
+    }
+
+    private Map<String,Integer> registerOrder(String[] userInput, Map<String,Integer> orderList, int totalCount){
         for(String input:userInput){
             String[] menu = input.split("-");
             Validator.validateMenuExist(menu[0]);
@@ -36,10 +45,6 @@ public class PlannerController {
         }
         Validator.validateTotalNumber(totalCount);
         return orderList;
-    }
-
-    private String[] convertStringToArray(String input){
-        return input.split(",");
     }
 
 
