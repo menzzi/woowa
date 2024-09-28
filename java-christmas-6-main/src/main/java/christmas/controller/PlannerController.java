@@ -19,8 +19,8 @@ public class PlannerController {
 
     public void eventPlanner(){
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
-        int expectedDate = Integer.parseInt(inputView.inputExpectedDate());
-        Map<String, Integer> orderMenu = orderMenu();
+        int expectedDate = inputExpectedDate();
+        Map<String, Integer> orderMenu = inputOrderMenu();
     }
 
     private Map<String,Integer> orderMenu(){
@@ -48,11 +48,28 @@ public class PlannerController {
         return orderList;
     }
 
-
     private int dealMenuNumber(String count){
         Validator.validateNumber(count);
         int number = Integer.parseInt(count);
         Validator.validateNumberRange(number);
         return number;
+    }
+
+    private int inputExpectedDate(){
+        try{
+            return Integer.parseInt(inputView.inputExpectedDate());
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return inputExpectedDate();
+        }
+    }
+
+    private Map<String, Integer> inputOrderMenu(){
+        try{
+            return orderMenu();
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return inputOrderMenu();
+        }
     }
 }
