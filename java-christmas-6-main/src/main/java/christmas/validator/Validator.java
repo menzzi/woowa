@@ -66,4 +66,10 @@ public class Validator {
         }
         throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
+
+    public static void validateOnlyDrink(boolean isOnlyDrink){
+        if(isOnlyDrink){
+            throw new IllegalArgumentException("[ERROR] 음료만 주문 시, 주문할 수 없습니다.");
+        }
+    }
 }
