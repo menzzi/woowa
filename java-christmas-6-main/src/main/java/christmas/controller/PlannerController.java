@@ -1,17 +1,21 @@
 package christmas.controller;
 
 import christmas.domain.Menu;
+import christmas.util.AmountCalculation;
 import christmas.validator.Validator;
 import christmas.view.InputView;
+import christmas.view.OutputView;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PlannerController {
     private final InputView inputView;
+    private final OutputView outputView;
 
-    public PlannerController(InputView inputView){
+    public PlannerController(InputView inputView, OutputView outputView){
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run(){
@@ -22,6 +26,9 @@ public class PlannerController {
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
         int expectedDate = inputExpectedDate();
         Map<String, Integer> orderMenu = inputOrderMenu();
+        int totalAmount = AmountCalculation.calculateTotalAmount(orderMenu);
+        outputView.printOrderMenu(orderMenu);
+        outputView.printTotalOrderAmount(totalAmount);
     }
 
     private Map<String,Integer> orderMenu(){

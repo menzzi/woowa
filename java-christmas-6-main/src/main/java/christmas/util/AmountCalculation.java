@@ -7,7 +7,7 @@ import christmas.domain.MenuItem;
 import java.util.Map;
 
 public class AmountCalculation {
-    public int calculateTotalAmount(Map<String,Integer> orderList){
+    public static int calculateTotalAmount(Map<String, Integer> orderList){
         int totalAmount = 0;
         for(Map.Entry<String,Integer> order:orderList.entrySet()){
             int price = findPrice(order.getKey());
