@@ -1,9 +1,9 @@
 package christmas.controller;
 
+import christmas.validator.Validator;
 import christmas.view.InputView;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PlannerController {
@@ -28,12 +28,13 @@ public class PlannerController {
         int totalCount = 0;
         for(String input:userInput){
             String[] menu = input.split("-");
-            validateDuplicate(orderList,menu[0]);
+            Validator.validateMenuExist(menu[0]);
+            Validator.validateDuplicate(orderList,menu[0]);
             int count = dealMenuNumber(menu[1]);
             orderList.put(menu[0],count);
             totalCount += count;
         }
-        validateTotalNumber(totalCount);
+        Validator.validateTotalNumber(totalCount);
         return orderList;
     }
 
@@ -41,39 +42,11 @@ public class PlannerController {
         return input.split(",");
     }
 
-    private void validateNumber(String count){
-        try{
-            Integer.parseInt(count);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        }
-    }
-
-    private void validateNumberRange(int count){
-        if(count < 1){
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        }
-        if(count > 20){
-            throw new IllegalArgumentException("[ERROR] 한번에 최대 20개까지만 주문할 수 있습니다.");
-        }
-    }
 
     private int dealMenuNumber(String count){
-        validateNumber(count);
+        Validator.validateNumber(count);
         int number = Integer.parseInt(count);
-        validateNumberRange(number);
+        Validator.validateNumberRange(number);
         return number;
-    }
-
-    private void validateTotalNumber(int totalCount){
-        if(totalCount > 20){
-            throw new IllegalArgumentException("[ERROR] 한번에 최대 20개까지만 주문할 수 있습니다.");
-        }
-    }
-
-    private void validateDuplicate(Map<String,Integer> orderList, String menu){
-        if(orderList.containsKey(menu)){
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        }
     }
 }
