@@ -18,24 +18,31 @@ public class Discount {
         return 1000 + 100 * (orderDate - EVENT_START);
     }
 
-    public int weekdayDiscount(int orderDate, int dessertCount){
+    public int calculateWeekdayDiscount(int orderDate, int dessertCount){
         if(STAR_DATES.contains(orderDate) || WEEKEND_DATES.contains(orderDate)){
             return 0;
         }
         return dessertCount * WEEKDAY_DISCOUNT_AMOUNT;
     }
 
-    public int weekendDiscount(int orderDate, int mainCount){
+    public int calculateWeekendDiscount(int orderDate, int mainCount){
         if( WEEKEND_DATES.contains(orderDate)){
             return mainCount * WEEKEND_DISCOUNT_AMOUNT;
         }
         return 0;
     }
 
-    public int specialDiscount(int orderDate){
+    public int calculateSpecialDiscount(int orderDate){
         if(STAR_DATES.contains(orderDate)){
             return SPECIAL_DISCOUNT_AMOUNT;
         }
         return 0;
+    }
+
+    public int discountPolicy(int orderDate,int dessertCount, int mainCount){
+        calculateChristmasDiscount(orderDate);
+        calculateWeekdayDiscount(orderDate,dessertCount);
+        calculateWeekendDiscount(orderDate,mainCount);
+        calculateSpecialDiscount(orderDate);
     }
 }
