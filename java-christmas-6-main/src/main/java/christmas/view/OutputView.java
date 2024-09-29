@@ -20,12 +20,15 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printEachDiscount(int[] discountResult){
+    public void printEachDiscount(int[] discountResult, boolean isPresentation){
         System.out.println("<혜택 내역>");
         printChristmasDiscount(discountResult[0]);
         printWeekdayDiscount(discountResult[1]);
         printWeekendDiscount(discountResult[2]);
         specialDiscount(discountResult[3]);
+        if(isPresentation){
+            System.out.println("증정 이벤트: -25,000원");
+        }
         System.out.println();
     }
 
@@ -82,6 +85,12 @@ public class OutputView {
             return;
         }
         System.out.println("샴페인 1개");
+        System.out.println();
+    }
+
+    public void printOnlyPresentation(){
+        System.out.println("<혜택 내역>");
+        System.out.println("증정 이벤트: -25,000원");
         System.out.println();
     }
 }
