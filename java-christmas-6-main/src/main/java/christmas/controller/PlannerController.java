@@ -155,6 +155,9 @@ public class PlannerController {
             printNothing(isPresentation);
             return 0;
         }
+        if(isPresentation){
+            totalDiscountAmount += 25000;
+        }
         outputView.printEachDiscount(discountResult,isPresentation);
         return totalDiscountAmount;
     }
@@ -166,6 +169,6 @@ public class PlannerController {
             return;
         }
         outputView.printOnlyPresentation();
-        outputView.printTotalDiscount(0);
+        outputView.printTotalDiscount(25000);
     }
 }

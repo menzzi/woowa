@@ -37,7 +37,7 @@ public class PlannerControllerTest {
 
     @Test
     void 없음_출력_테스트() {
-        int totalAmount = plannerController.printEachDiscount(new int[]{0, 0, 0, 0},24000);
+        int totalAmount = plannerController.printEachDiscount(new int[]{0, 0, 0, 0},false);
 
         assertEquals(0, totalAmount);
         verify(outputView).printEachDiscountNothing();
