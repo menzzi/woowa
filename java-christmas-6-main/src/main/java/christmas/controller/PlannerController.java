@@ -2,6 +2,7 @@ package christmas.controller;
 
 import christmas.domain.Menu;
 import christmas.util.AmountCalculation;
+import christmas.util.Discount;
 import christmas.validator.Validator;
 import christmas.view.InputView;
 import christmas.view.OutputView;
@@ -22,7 +23,7 @@ public class PlannerController {
 
     }
 
-    public void eventPlanner(){
+    private void eventPlanner(){
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
         int expectedDate = inputExpectedDate();
         Map<String, Integer> orderMenu = inputOrderMenu();
@@ -91,5 +92,41 @@ public class PlannerController {
             System.out.println(e.getMessage());
             return inputOrderMenu();
         }
+    }
+
+    private int applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu){
+        if(totalAmount < 10000){
+            return 0;
+        }
+        int dessertCount = countDessert(orderMenu);
+        int mainCount = countMain(orderMenu);
+
+        return Discount.discountPolicy(orderDate,dessertCount,mainCount);
+    }
+
+    private int countDessert(Map<String, Integer> orderMenu){
+        int dessertCount = 0;
+        for(String menuName:orderMenu.keySet()){
+            try {
+                Menu.DESSERTS.getItemByName(menuName);
+                dessertCount++;
+            } catch (IllegalArgumentException e) {
+                break;
+            }
+        }
+        return dessertCount;
+    }
+
+    private int countMain(Map<String, Integer> orderMenu){
+        int mainCount = 0;
+        for(String menuName:orderMenu.keySet()){
+            try {
+                Menu.MAINS.getItemByName(menuName);
+                dessertCount++;
+            } catch (IllegalArgumentException e) {
+                break;
+            }
+        }
+        return mainCount;
     }
 }
