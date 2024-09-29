@@ -19,7 +19,7 @@ public class Discount {
     }
 
     public static int calculateWeekdayDiscount(int orderDate, int dessertCount){
-        if(STAR_DATES.contains(orderDate) || WEEKEND_DATES.contains(orderDate)){
+        if(WEEKEND_DATES.contains(orderDate)){
             return 0;
         }
         return dessertCount * WEEKDAY_DISCOUNT_AMOUNT;
