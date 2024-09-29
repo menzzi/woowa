@@ -22,7 +22,12 @@ public class PlannerController {
     }
 
     public void run(){
-
+        try{
+            eventPlanner();
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            run();
+        }
     }
 
     private void eventPlanner(){
