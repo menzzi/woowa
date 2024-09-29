@@ -16,7 +16,7 @@ public class AmountCalculation {
         return totalAmount;
     }
 
-    private int findPrice(String menuName){
+    private static int findPrice(String menuName){
         for(MenuCategory category: Menu.ALL_CATEGORIES){
             try{
                 MenuItem item = category.getItemByName(menuName);

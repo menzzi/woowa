@@ -100,8 +100,8 @@ public class PlannerController {
         }
         int dessertCount = countDessert(orderMenu);
         int mainCount = countMain(orderMenu);
-
-        return Discount.discountPolicy(orderDate,dessertCount,mainCount);
+        int[] discountResult = Discount.discountPolicy(orderDate,dessertCount,mainCount);
+        return printEachDiscount(discountResult);
     }
 
     private int countDessert(Map<String, Integer> orderMenu){
@@ -122,11 +122,22 @@ public class PlannerController {
         for(String menuName:orderMenu.keySet()){
             try {
                 Menu.MAINS.getItemByName(menuName);
-                dessertCount++;
+                mainCount++;
             } catch (IllegalArgumentException e) {
                 break;
             }
         }
         return mainCount;
+    }
+
+    private int printEachDiscount(int[] discountResult){
+        int totalDiscountAmount = 0;
+        for(int amount:discountResult){
+            if(amount!=0){
+                // 결과 출력
+                totalDiscountAmount += amount;
+            }
+        }
+        return totalDiscountAmount;
     }
 }
