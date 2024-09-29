@@ -15,8 +15,54 @@ public class OutputView {
     }
 
     public void printTotalOrderAmount(int totalAmount){
-        System.out.println("할인 전 총주문 금액");
+        System.out.println("<할인 전 총주문 금액>");
         System.out.println(NumberFormat.getInstance().format(totalAmount) + "원");
+        System.out.println();
+    }
+
+    public void printEachDiscount(int[] discountResult){
+        printChristmasDiscount(discountResult[0]);
+        printWeekdayDiscount(discountResult[1]);
+        printWeekendDiscount(discountResult[2]);
+        specialDiscount(discountResult[3]);
+    }
+
+    public void printChristmasDiscount(int amount){
+        if(amount == 0){
+            return;
+        }
+        System.out.println("크리스마스 디데이 할인: -" + NumberFormat.getInstance().format(amount) + "원");
+    }
+
+    public void printWeekdayDiscount(int amount){
+        if(amount == 0){
+            return;
+        }
+        System.out.println("평일 할인: -" + NumberFormat.getInstance().format(amount) + "원");
+    }
+
+    public void printWeekendDiscount(int amount){
+        if(amount == 0){
+            return;
+        }
+        System.out.println("주말 할인: -" + NumberFormat.getInstance().format(amount) + "원");
+    }
+
+    public void specialDiscount(int amount){
+        if(amount == 0){
+            return;
+        }
+        System.out.println("특별 할인: -" + NumberFormat.getInstance().format(amount) + "원");
+    }
+
+    public void printTotalDiscount(int amount){
+        System.out.println("<총혜택 금액>");
+        if(amount == 0){
+            System.out.println("없음");
+            System.out.println();
+            return;
+        }
+        System.out.println("-" + NumberFormat.getInstance().format(amount) + "원");
         System.out.println();
     }
 }
