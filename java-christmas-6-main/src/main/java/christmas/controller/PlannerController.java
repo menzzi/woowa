@@ -133,11 +133,9 @@ public class PlannerController {
     private int printEachDiscount(int[] discountResult){
         int totalDiscountAmount = 0;
         for(int amount:discountResult){
-            if(amount!=0){
-                // 결과 출력
-                totalDiscountAmount += amount;
-            }
+            totalDiscountAmount += amount;
         }
+        outputView.printEachDiscount(discountResult);
         return totalDiscountAmount;
     }
 }
