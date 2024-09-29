@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="christmas.controller.PlannerControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-09-29T06:34:01" hostname="seominjiui-MacBookAir.local" time="0.421">
+  <properties/>
+  <testcase name="없음_출력_테스트()" classname="christmas.controller.PlannerControllerTest" time="0.416"/>
+  <testcase name="디저트_카운트_테스트()" classname="christmas.controller.PlannerControllerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

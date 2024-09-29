@@ -110,7 +110,7 @@ public class PlannerController {
         outputView.printTotalDiscount(total);
     }
 
-    private int countDessert(Map<String, Integer> orderMenu){
+    public int countDessert(Map<String, Integer> orderMenu){
         int dessertCount = 0;
         for(String menuName:orderMenu.keySet()){
             try {
@@ -136,7 +136,7 @@ public class PlannerController {
         return mainCount;
     }
 
-    private int printEachDiscount(int[] discountResult){
+    public int printEachDiscount(int[] discountResult){
         int totalDiscountAmount = 0;
         for(int amount:discountResult){
             totalDiscountAmount += amount;
