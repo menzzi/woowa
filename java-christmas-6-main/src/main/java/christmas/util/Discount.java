@@ -39,11 +39,14 @@ public class Discount {
         return 0;
     }
 
-    public static int discountPolicy(int orderDate,int dessertCount, int mainCount){
+    public static int[] discountPolicy(int orderDate,int dessertCount, int mainCount){
         int christmasDiscount = calculateChristmasDiscount(orderDate);
         int weekdayDiscount = calculateWeekdayDiscount(orderDate,dessertCount);
         int weekendDiscount = calculateWeekendDiscount(orderDate,mainCount);
         int specialDiscount = calculateSpecialDiscount(orderDate);
-        return christmasDiscount + weekdayDiscount + weekendDiscount + specialDiscount;
+
+        int[] discountResult = new int[]{christmasDiscount,weekdayDiscount,weekendDiscount,specialDiscount};
+
+        return discountResult;
     }
 }
