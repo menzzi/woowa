@@ -11,8 +11,6 @@ import christmas.view.OutputView;
 import java.util.HashMap;
 import java.util.Map;
 
-import static christmas.util.PresentationEvent.presentationChampagne;
-
 public class PlannerController {
     private final InputView inputView;
     private final OutputView outputView;
