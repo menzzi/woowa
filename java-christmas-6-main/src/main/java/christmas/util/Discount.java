@@ -11,35 +11,35 @@ public class Discount {
     private static final int EVENT_START = 1;
     private static final int CHRISTMAS_EVENT_END = 25;
 
-    public int calculateChristmasDiscount(int orderDate){
+    public static int calculateChristmasDiscount(int orderDate){
         if(orderDate > CHRISTMAS_EVENT_END){
             return 0;
         }
         return 1000 + 100 * (orderDate - EVENT_START);
     }
 
-    public int calculateWeekdayDiscount(int orderDate, int dessertCount){
+    public static int calculateWeekdayDiscount(int orderDate, int dessertCount){
         if(STAR_DATES.contains(orderDate) || WEEKEND_DATES.contains(orderDate)){
             return 0;
         }
         return dessertCount * WEEKDAY_DISCOUNT_AMOUNT;
     }
 
-    public int calculateWeekendDiscount(int orderDate, int mainCount){
+    public static int calculateWeekendDiscount(int orderDate, int mainCount){
         if( WEEKEND_DATES.contains(orderDate)){
             return mainCount * WEEKEND_DISCOUNT_AMOUNT;
         }
         return 0;
     }
 
-    public int calculateSpecialDiscount(int orderDate){
+    public static int calculateSpecialDiscount(int orderDate){
         if(STAR_DATES.contains(orderDate)){
             return SPECIAL_DISCOUNT_AMOUNT;
         }
         return 0;
     }
 
-    public int discountPolicy(int orderDate,int dessertCount, int mainCount){
+    public static int discountPolicy(int orderDate,int dessertCount, int mainCount){
         int christmasDiscount = calculateChristmasDiscount(orderDate);
         int weekdayDiscount = calculateWeekdayDiscount(orderDate,dessertCount);
         int weekendDiscount = calculateWeekendDiscount(orderDate,mainCount);
