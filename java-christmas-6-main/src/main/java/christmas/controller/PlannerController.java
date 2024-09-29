@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.domain.Badge;
 import christmas.domain.Menu;
 import christmas.util.AmountCalculation;
 import christmas.util.Discount;
@@ -32,6 +33,8 @@ public class PlannerController {
         outputView.printOrderMenu(orderMenu);
         outputView.printTotalOrderAmount(totalAmount);
         int totalDiscountAmount = applyDiscountPolicy(expectedDate,totalAmount,orderMenu, applyPresentationEvent(totalAmount));
+        Badge badge = Badge.giveBadge(totalDiscountAmount);
+        outputView.printBadgeName(badge.getBadgeName());
     }
 
     private Map<String,Integer> orderMenu(){

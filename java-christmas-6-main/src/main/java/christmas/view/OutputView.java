@@ -99,4 +99,13 @@ public class OutputView {
         System.out.println(NumberFormat.getInstance().format(payment) + "원");
         System.out.println();
     }
+
+    public void printBadgeName(String name){
+        System.out.println("<12월 이벤트 배지>");
+        if(name.equals("")){
+            System.out.println("없음");
+            return;
+        }
+        System.out.println(name);
+    }
 }
