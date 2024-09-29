@@ -21,10 +21,12 @@ public class OutputView {
     }
 
     public void printEachDiscount(int[] discountResult){
+        System.out.println("<혜택 내역>");
         printChristmasDiscount(discountResult[0]);
         printWeekdayDiscount(discountResult[1]);
         printWeekendDiscount(discountResult[2]);
         specialDiscount(discountResult[3]);
+        System.out.println();
     }
 
     public void printChristmasDiscount(int amount){
@@ -63,6 +65,12 @@ public class OutputView {
             return;
         }
         System.out.println("-" + NumberFormat.getInstance().format(amount) + "원");
+        System.out.println();
+    }
+
+    public void printEachDiscountNothing(){
+        System.out.println("<혜택 내역>");
+        System.out.println("없음");
         System.out.println();
     }
 }

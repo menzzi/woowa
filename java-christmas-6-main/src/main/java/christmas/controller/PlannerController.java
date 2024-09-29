@@ -94,14 +94,14 @@ public class PlannerController {
         }
     }
 
-    private int applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu){
+    private void applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu){
         if(totalAmount < 10000){
-            return 0;
+            return;
         }
         int dessertCount = countDessert(orderMenu);
         int mainCount = countMain(orderMenu);
         int[] discountResult = Discount.discountPolicy(orderDate,dessertCount,mainCount);
-        return printEachDiscount(discountResult);
+        int total = printEachDiscount(discountResult);
     }
 
     private int countDessert(Map<String, Integer> orderMenu){
