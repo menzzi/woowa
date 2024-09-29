@@ -31,7 +31,7 @@ public class PlannerController {
         int totalAmount = AmountCalculation.calculateTotalAmount(orderMenu);
         outputView.printOrderMenu(orderMenu);
         outputView.printTotalOrderAmount(totalAmount);
-        applyDiscountPolicy(expectedDate,totalAmount,orderMenu, applyPresentationEvent(totalAmount));
+        int totalDiscountAmount = applyDiscountPolicy(expectedDate,totalAmount,orderMenu, applyPresentationEvent(totalAmount));
     }
 
     private Map<String,Integer> orderMenu(){
@@ -103,20 +103,21 @@ public class PlannerController {
         return false;
     }
 
-    private void applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu, boolean isPresentation){
+    private int applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu, boolean isPresentation){
         if(totalAmount < 10000){
             printNothing(isPresentation);
-            return;
+            return 0;
         }
         int dessertCount = countDessert(orderMenu);
         int mainCount = countMain(orderMenu);
         int[] discountResult = Discount.discountPolicy(orderDate,dessertCount,mainCount);
-        int total = printEachDiscount(discountResult,isPresentation);
-        if(total == 0){
-            return;
+        int DiscountAmount = printEachDiscount(discountResult,isPresentation);
+        if(DiscountAmount == 0){
+            return 0;
         }
-        outputView.printTotalDiscount(total);
-        calculatePaymentAmount(totalAmount,total);
+        outputView.printTotalDiscount(DiscountAmount);
+        calculatePaymentAmount(totalAmount,DiscountAmount);
+        return DiscountAmount;
     }
 
     private void calculatePaymentAmount(int totalAmount, int totalDiscount){
