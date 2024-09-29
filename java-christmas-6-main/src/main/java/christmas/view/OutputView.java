@@ -93,4 +93,10 @@ public class OutputView {
         System.out.println("증정 이벤트: -25,000원");
         System.out.println();
     }
+
+    public void printPaymentAmount(int payment){
+        System.out.println("<할인 후 예상 결제 금액>");
+        System.out.println(NumberFormat.getInstance().format(payment) + "원");
+        System.out.println();
+    }
 }
