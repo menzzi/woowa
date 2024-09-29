@@ -124,11 +124,11 @@ public class PlannerController {
     private void calculatePaymentAmount(int totalAmount, int totalDiscount){
         if(totalAmount < 25000){
             int payment = totalAmount - totalDiscount;
-            // 출력
+            outputView.printPaymentAmount(payment);
             return;
         }
         int payment = totalAmount - totalDiscount + 25000;
-        // 출력
+        outputView.printPaymentAmount(payment);
     }
 
     public int countDessert(Map<String, Integer> orderMenu){
