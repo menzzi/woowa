@@ -3,12 +3,15 @@ package christmas.controller;
 import christmas.domain.Menu;
 import christmas.util.AmountCalculation;
 import christmas.util.Discount;
+import christmas.util.PresentationEvent;
 import christmas.validator.Validator;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static christmas.util.PresentationEvent.presentationChampagne;
 
 public class PlannerController {
     private final InputView inputView;
@@ -30,6 +33,7 @@ public class PlannerController {
         int totalAmount = AmountCalculation.calculateTotalAmount(orderMenu);
         outputView.printOrderMenu(orderMenu);
         outputView.printTotalOrderAmount(totalAmount);
+        applyPresentationEvent(totalAmount);
         applyDiscountPolicy(expectedDate,totalAmount,orderMenu);
     }
 
@@ -95,6 +99,11 @@ public class PlannerController {
         }
     }
 
+    private void applyPresentationEvent(int totalAmount){
+        int presentationAmount = PresentationEvent.presentationChampagne(totalAmount);
+        outputView.printPresentationEvent(presentationAmount);
+    }
+
     private void applyDiscountPolicy(int orderDate, int totalAmount, Map<String, Integer> orderMenu){
         if(totalAmount < 10000){
             printNothing();
@@ -103,7 +112,7 @@ public class PlannerController {
         int dessertCount = countDessert(orderMenu);
         int mainCount = countMain(orderMenu);
         int[] discountResult = Discount.discountPolicy(orderDate,dessertCount,mainCount);
-        int total = printEachDiscount(discountResult);
+        int total = printEachDiscount(discountResult,totalAmount);
         if(total == 0){
             return;
         }
@@ -136,21 +145,27 @@ public class PlannerController {
         return mainCount;
     }
 
-    public int printEachDiscount(int[] discountResult){
+    public int printEachDiscount(int[] discountResult, int totalAmount){
         int totalDiscountAmount = 0;
         for(int amount:discountResult){
             totalDiscountAmount += amount;
         }
         if(totalDiscountAmount == 0){
-            printNothing();
+            printNothing(totalAmount);
             return 0;
         }
         outputView.printEachDiscount(discountResult);
+        // 샴페인도 출력
         return totalDiscountAmount;
     }
 
-    private void printNothing(){
-        outputView.printEachDiscountNothing();
+    private void printNothing(int totalAmount){
+        if(totalAmount < 25000){
+            outputView.printEachDiscountNothing();
+            outputView.printTotalDiscount(0);
+            return;
+        }
+        // 혜택 내역에 샴페인 가격 출력
         outputView.printTotalDiscount(0);
     }
 }
