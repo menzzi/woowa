@@ -35,7 +35,7 @@ public class PlannerController {
         int expectedDate = inputExpectedDate();
         Map<String, Integer> orderMenu = inputOrderMenu();
         int totalAmount = AmountCalculation.calculateTotalAmount(orderMenu);
-        outputView.printOrderMenu(orderMenu);
+        outputView.printOrderMenu(expectedDate,orderMenu);
         outputView.printTotalOrderAmount(totalAmount);
         int totalDiscountAmount = applyDiscountPolicy(expectedDate,totalAmount,orderMenu, applyPresentationEvent(totalAmount));
         Badge badge = Badge.giveBadge(totalDiscountAmount);

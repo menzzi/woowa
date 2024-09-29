@@ -4,8 +4,8 @@ import java.text.NumberFormat;
 import java.util.Map;
 
 public class OutputView {
-    public void printOrderMenu(Map<String,Integer> orderList){
-        System.out.println("12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
+    public void printOrderMenu(int expectedDate, Map<String,Integer> orderList){
+        System.out.println("12월 " + expectedDate + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
         System.out.println();
         System.out.println("<주문 메뉴>");
         for(Map.Entry<String,Integer> order: orderList.entrySet()){
