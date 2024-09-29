@@ -73,4 +73,15 @@ public class OutputView {
         System.out.println("없음");
         System.out.println();
     }
+
+    public void printPresentationEvent(int amount){
+        System.out.println("<증정 메뉴>");
+        if(amount == 0){
+            System.out.println("없음");
+            System.out.println();
+            return;
+        }
+        System.out.println("샴페인 1개");
+        System.out.println();
+    }
 }
