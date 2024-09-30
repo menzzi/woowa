@@ -37,5 +37,4 @@ public class OrderRecord {
         Validator.validateNumberRange(number);
         return number;
     }
-
 }
