@@ -2,15 +2,10 @@ package christmas.controller;
 
 import christmas.domain.Badge;
 import christmas.domain.Menu;
-import christmas.util.AmountCalculation;
-import christmas.util.CountMenuCategory;
-import christmas.util.Discount;
-import christmas.util.PresentationEvent;
-import christmas.validator.Validator;
+import christmas.util.*;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class PlannerController {
@@ -43,32 +38,6 @@ public class PlannerController {
         outputView.printBadgeName(badge.getBadgeName());
     }
 
-    private Map<String,Integer> orderMenu(){
-        String[] userInput = convertStringToArray(inputView.inputMenu());
-        int totalCount = 0;
-        Map<String,Integer> orderList = new HashMap<>();
-        orderList = registerOrder(userInput, orderList,totalCount);
-        Validator.validateOnlyDrink(checkOnlyDrink(orderList));
-        return orderList;
-    }
-
-    private String[] convertStringToArray(String input){
-        return input.split(",");
-    }
-
-    private Map<String,Integer> registerOrder(String[] userInput, Map<String,Integer> orderList, int totalCount){
-        for(String input:userInput){
-            String[] menu = input.split("-");
-            Validator.validateMenuExist(menu[0]);
-            Validator.validateDuplicate(orderList,menu[0]);
-            int count = dealMenuNumber(menu[1]);
-            orderList.put(menu[0],count);
-            totalCount += count;
-        }
-        Validator.validateTotalNumber(totalCount);
-        return orderList;
-    }
-
     private boolean checkOnlyDrink(Map<String,Integer> orderList){
         for(String menuName:orderList.keySet()){
             try {
@@ -78,13 +47,6 @@ public class PlannerController {
             }
         }
         return true;
-    }
-
-    private int dealMenuNumber(String count){
-        Validator.validateNumber(count);
-        int number = Integer.parseInt(count);
-        Validator.validateNumberRange(number);
-        return number;
     }
 
     private int inputExpectedDate(){
@@ -98,7 +60,9 @@ public class PlannerController {
 
     private Map<String, Integer> inputOrderMenu(){
         try{
-            return orderMenu();
+            Map<String,Integer> orderList = OrderRecord.orderMenu(inputView.inputMenu());
+            checkOnlyDrink(orderList);
+            return orderList;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
             return inputOrderMenu();
