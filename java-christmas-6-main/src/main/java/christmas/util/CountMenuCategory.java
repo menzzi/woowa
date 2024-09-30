@@ -10,7 +10,7 @@ public class CountMenuCategory {
         for(String menuName:orderMenu.keySet()){
             try {
                 Menu.DESSERTS.getItemByName(menuName);
-                dessertCount++;
+                dessertCount += orderMenu.get(menuName);
             } catch (IllegalArgumentException e) {
                 break;
             }
@@ -23,7 +23,7 @@ public class CountMenuCategory {
         for(String menuName:orderMenu.keySet()){
             try {
                 Menu.MAINS.getItemByName(menuName);
-                mainCount++;
+                mainCount += orderMenu.get(menuName);
             } catch (IllegalArgumentException e) {
                 break;
             }

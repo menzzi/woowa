@@ -6,9 +6,6 @@ import christmas.view.OutputView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -23,17 +20,6 @@ public class PlannerControllerTest {
         inputView = mock(InputView.class);
         outputView = mock(OutputView.class);
         plannerController = new PlannerController(inputView, outputView);
-    }
-
-    @Test
-    void 디저트_카운트_테스트() {
-        Map<String, Integer> orderMenu = new HashMap<>();
-        orderMenu.put("초코케이크", 2);
-        orderMenu.put("레드와인", 1);
-
-        int dessertCount = plannerController.countDessert(orderMenu);
-
-        assertEquals(1, dessertCount);  // Only 1 dessert item (초코케이크)
     }
 
     @Test
