@@ -3,6 +3,7 @@ package christmas.controller;
 import christmas.domain.Badge;
 import christmas.domain.Menu;
 import christmas.util.*;
+import christmas.validator.Validator;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -61,7 +62,7 @@ public class PlannerController {
     private Map<String, Integer> inputOrderMenu(){
         try{
             Map<String,Integer> orderList = OrderRecord.orderMenu(inputView.inputMenu());
-            checkOnlyDrink(orderList);
+            Validator.validateOnlyDrink(checkOnlyDrink(orderList));
             return orderList;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
