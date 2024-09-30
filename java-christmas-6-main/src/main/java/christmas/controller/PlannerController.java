@@ -3,6 +3,7 @@ package christmas.controller;
 import christmas.domain.Badge;
 import christmas.domain.Menu;
 import christmas.util.AmountCalculation;
+import christmas.util.CountMenuCategory;
 import christmas.util.Discount;
 import christmas.util.PresentationEvent;
 import christmas.validator.Validator;
@@ -116,8 +117,8 @@ public class PlannerController {
             printNothing(isPresentation);
             return 0;
         }
-        int dessertCount = countDessert(orderMenu);
-        int mainCount = countMain(orderMenu);
+        int dessertCount = CountMenuCategory.countDessert(orderMenu);
+        int mainCount = CountMenuCategory.countMain(orderMenu);
         int[] discountResult = Discount.discountPolicy(orderDate,dessertCount,mainCount);
         int DiscountAmount = printEachDiscount(discountResult,isPresentation);
         if(DiscountAmount == 0){
@@ -136,32 +137,6 @@ public class PlannerController {
         }
         int payment = totalAmount - totalDiscount + 25000;
         outputView.printPaymentAmount(payment);
-    }
-
-    public int countDessert(Map<String, Integer> orderMenu){
-        int dessertCount = 0;
-        for(String menuName:orderMenu.keySet()){
-            try {
-                Menu.DESSERTS.getItemByName(menuName);
-                dessertCount++;
-            } catch (IllegalArgumentException e) {
-                break;
-            }
-        }
-        return dessertCount;
-    }
-
-    private int countMain(Map<String, Integer> orderMenu){
-        int mainCount = 0;
-        for(String menuName:orderMenu.keySet()){
-            try {
-                Menu.MAINS.getItemByName(menuName);
-                mainCount++;
-            } catch (IllegalArgumentException e) {
-                break;
-            }
-        }
-        return mainCount;
     }
 
     public int printEachDiscount(int[] discountResult, boolean isPresentation){
